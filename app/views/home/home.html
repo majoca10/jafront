@@ -103,7 +103,7 @@
                    <div style="width: 80%;margin: 0 auto;">
                         <slider step="20000" instance="amount_instance" id="amount" ng-model="form.data.amount" initial="200000" range="[100000, 500000]"></slider>                     
                    </div>
-                  <i  ng-click="inc_amount()"><img style="color: #0bd5dd;position: relative;right: -185px !important;cursor: pointer;top: -34px;;" src="images\money-up.png" alt="Incrementa el Monto"></i>
+                  <i  ng-click="inc_amount()"><img style="color: #0bd5dd;position: relative;right: -185px !important;cursor: pointer;top: -34px;" src="images\money-up.png" alt="Incrementa el Monto"></i>
                   <div class="row" style="padding-right:10px;">
                       <div class="col-lg-8 text-left"><p class="simulator-warning animated bounce text-warning noselect" ng-show="show_warning_msg"><i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i> Su cupo inicial máximo es de 300.000 pesos.</p></div>
                       <div class="col-lg-4 text-center simulator-values number-font noselect"><span>{{form.data.amount[0] || 0 | currency:"$ "}}</span></div>
