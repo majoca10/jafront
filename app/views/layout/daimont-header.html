@@ -14,7 +14,7 @@
               <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
               <span class="animated bounceInLeft" style="display: block;position: absolute;font-size: 7px;bottom: 5px;left: 44px;bottom: -10px;left: 44px;color: #0bd6dd;">Créditos rápidos y seguros</span>
             </a>
-            <a class="navbar-brand" ui-sref="credits({status:'firmado'})" href="#/credits" ng-show="$root.user && ($root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR') ">
+            <a ui-sref="credits({status:'firmado'})" href="#/credits" ng-show="$root.user && ($root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR') ">
               <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
               <span class="animated bounceInLeft" style="display: block;position: absolute;font-size: 7px;bottom: 5px;left: 44px;bottom: -10px;left: 44px;color: #0bd6dd;">Créditos rápidos y seguros</span>
             </a>
@@ -27,49 +27,49 @@
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="!$root.user.data.picture" class="rounded-circle img-raised" ng-src="images/no_avatar.gif">
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/preventivos" ui-sref="preventivos()">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/preventivos" ui-sref="preventivos()">
                         <p>Cobro preventivo</p>
                          <span class="badge badge-success" ng-show="result_length_preventivo > 0">{{result_length_preventivo}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/credits" ui-sref="credits({status : 'firmado'})">
+                <li ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/credits" ui-sref="credits({status : 'firmado'})">
                         <p>Solicitudes</p>
                          <span class="badge badge-success" ng-show="result_length > 0">{{result_length}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/credits" ui-sref="credits({status : 'pendiente_48'})">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/credits" ui-sref="credits({status : 'pendiente_48'})">
                         <p>Pendientes</p>
                          <span class="badge badge-success" ng-show="result_length_pendiente_48 > 0">{{result_length_pendiente_48}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/credits" ui-sref="credits({status : 'preaprobado'})">
-                        <p>pre-aprobados</p>
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/credits" ui-sref="credits({status : 'preaprobado'})">
+                        <p>Pre-aprobados</p>
                         <span class="badge badge-success" ng-show="$root.result_length_preaprobado > 0">{{$root.result_length_preaprobado}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/credits" ui-sref="credits({status : 'aceptado'})">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/credits" ui-sref="credits({status : 'aceptado'})">
                         <p>Aprobados</p>
                          <span class="badge badge-success" ng-show="$root.result_length_aprobado > 0">{{$root.result_length_aprobado}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/paymens" ui-sref="payments()">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/paymens" ui-sref="payments()">
                         <p>Pagos</p>
                         <span class="badge badge-success" ng-show="payments_records.length > 0">{{payments_records.length}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/clients" ui-sref="clients()">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/clients" ui-sref="clients()">
                         <p>Clientes</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
-                    <a class="nav-link" href="#/administrators" ui-sref="administrators()">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a href="#/administrators" ui-sref="administrators()">
                         <p>Administradores</p>
                     </a>
                 </li>
@@ -99,30 +99,30 @@
                         <p>Ampliar cupo de préstamo</p>
                     </a>
                 </li>
-                <!-- <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
-                    <a class="nav-link" ui-sref="about()" href="#/acercade">
-                        <i class="now-ui-icons objects_diamond hidden-md-down" style="color: #00989e;"></i>
+                <li ui-sref-active="active" ng-show="!$root.user">
+                    <a ui-sref="#" href="#">
+                        <i class="fa fa-usd" style="color: #00989e;"></i>
                         <p>Quiénes somos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
-                    <a class="nav-link" ui-sref="how()" href="#/como-empezar">
+                <li ui-sref-active="active" ng-show="!$root.user">
+                    <a ui-sref="#" href="#">
                         <p>Como solicitar tu préstamo</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
-                    <a class="nav-link" ui-sref="faq()" href="#/preguntas-frecuentes">
+                <li ui-sref-active="active" ng-show="!$root.user">
+                    <a ui-sref="#" href="#">
                         <p>Preguntas frecuentes</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
-                    <a class="nav-link" ui-sref="contact()" href="#/contact">
+                <li ui-sref-active="active" ng-show="!$root.user">
+                    <a ui-sref="#" href="#">
                         <p>Contáctanos </p>
                     </a>
-                </li> -->
+                </li>
                 <li ui-sref-active="active" ng-hide="$root.user">
                     <a ui-sref="login()" href="#/login">
-                        <i class="now-ui-icons users_circle-08 hidden-md-down" style="color: #ffb236;"></i>
+                        <i class="now-ui-icons users_circle-08 hidden-md-down" style="color: #00989e;"></i>
                         Ingresar
                     </a>
                 </li> 
@@ -169,17 +169,17 @@ ul li {
   vertical-align: top;
 }
 ul li a {
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-  line-height: 60px;
-  padding: 0 35px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  font-weight: 300;
-  color: #fff;
-  font-family: 'Open Sans';
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    line-height: 60px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    position: relative;
+    font-weight: 150;
+    color: #fff;
+    font-family: system-ui;
 }
 ul li a:after {
   content: '';
@@ -190,7 +190,7 @@ ul li a:after {
   bottom: 0;
   background-color: #3498db;
   z-index: -1;
-  transform: skewX(-30deg);
+  /*transform: skewX(-30deg);*/
   opacity: 0;
   transition: opacity 0.3s;
 }
