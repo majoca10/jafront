@@ -164,11 +164,12 @@
     /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 320px) {
       .emulator_wrapper{
-          width: 100%;
-          text-align: center;
-          margin: 0 auto;
-          padding-top: 30%;
-          margin-right: 0px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 50%;
+        margin-right: 0px;
+        position: relative;
       }
 
       .decrement_button{
@@ -239,10 +240,11 @@
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
       .emulator_wrapper{
-          width: 850px;
-          text-align: center;
-          margin: 0 auto;
-          padding-top: 10%;
+        width: 850px;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 18%;
+        position: relative;
       }
 
       .step-item{
