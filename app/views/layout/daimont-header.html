@@ -8,21 +8,20 @@
             </button>
             <a class="navbar-brand" ui-sref="home()" href="#/home" ng-show="!$root.user">
               <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span class="animated bounceInLeft" style="display: block;position: absolute;font-size: 7px;bottom: -10px;left: 44px;color: #0bd6dd;">Créditos rápidos</span>
+              <span style="display: block;position: absolute;font-size: 9px;bottom: -11px;left: 22px;color: #0bd6dd;">Créditos rápidos</span>
             </a>
             <a class="navbar-brand" ui-sref="dashboard()" ui-sref-opts="{ reload : true}" href="#/dashboard" ng-show="$root.user && $root.user.type == 'CLIENT'">
               <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span class="animated bounceInLeft" style="display: block;position: absolute;font-size: 7px;bottom: 5px;left: 44px;bottom: -10px;left: 44px;color: #0bd6dd;">Créditos rápidos y seguros</span>
+              <span style="display: block;position: absolute;font-size: 9px;bottom: -11px;left: 22px;color: #0bd6dd;">Créditos rápidos y seguros</span>
             </a>
             <a ui-sref="credits({status:'firmado'})" href="#/credits" ng-show="$root.user && ($root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR') ">
               <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span class="animated bounceInLeft" style="display: block;position: absolute;font-size: 7px;bottom: 5px;left: 44px;bottom: -10px;left: 44px;color: #0bd6dd;">Créditos rápidos y seguros</span>
+              <span style="display: block;position: absolute;font-size: 9px;bottom: -11px;left: 22px;color: #0bd6dd;">Créditos rápidos y seguros</span>
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-info">
             <ul class="navbar-nav">
-                <li ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a href="" style="top: 10px;
-    position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
+                <li ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a href="" style="top: 10px;position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="$root.user.data.picture" ng-src="{{$root.user.data.picture}}">
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="!$root.user.data.picture" class="rounded-circle img-raised" ng-src="images/no_avatar.gif">
                     </a>
@@ -101,8 +100,7 @@
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
                     <a ui-sref="#" href="#">
-                        <i class="fa fa-usd" style="color: #00989e;"></i>
-                        <p>Quiénes somos</p>
+                        <p>JA Creditos</p>
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
@@ -122,7 +120,7 @@
                 </li>
                 <li ui-sref-active="active" ng-hide="$root.user">
                     <a ui-sref="login()" href="#/login">
-                        <i class="now-ui-icons users_circle-08 hidden-md-down" style="color: #00989e;"></i>
+                        <i class="fa fa-sign-in hidden-md-down" style="color: #00989e;"></i>
                         Ingresar
                     </a>
                 </li> 
