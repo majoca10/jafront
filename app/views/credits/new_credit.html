@@ -12,10 +12,10 @@
         </button>
         tu cupo máximo de <strong>{{$root.user.data.cupon | currency:"$":0}}</strong> pesos, si estás de acuerdo solicita un crédito nuevo, teniendo en cuenta este monto.
     </div>  
-    <div class="col-lg-12 emulator_wrapper" style="" ng-init="disableSliderControls()">
+    <div class="col-lg-12 emulator_wrapper" style="padding-top: 1%;;" ng-init="disableSliderControls()">
     <div class="col-lg-6 animated bounce" style="z-index: 1;">
       <div class="row">
-         <h5 class="text-center control-title noselect" style="color: #fff;;width:100%;padding:5px;">¿Cuánto dinero necesitas?</h5>
+         <h6 id="SimuladorMobil" class="text-center control-title noselect" style="color: #fff;;width:100%;margin-top: 30px;">¿Cuánto dinero necesitas?</h6>
 
       </div>
        <i  ng-click="dec_amount_mv()" class="now-ui-icons ui-1_simple-delete decrement_button"></i>
@@ -44,10 +44,10 @@
       <br />
     </div>
     </div> 
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" style="    position: fixed;margin-top: 81%;padding: 30px;">
                 <div class="card card-credit-resume card-padding" style="max-width:100%important;">
                     <div class="row">
-                        <h5 class="text-center control-title" style="color: #fff;background-color: #003b3e;width:100%;padding:5px;top: -15px;position: relative;">Resumen del préstamo</h5>
+                        <h5 class="text-center control-title" style="color: #fff;background-color: #003b3e;width:100%;padding:5px;top: -15px;position: relative;">Resumen del préstamo mobil</h5>
                     </div>
                     <div class="header header-primary text-center">
 

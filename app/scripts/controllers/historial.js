@@ -18,7 +18,7 @@ angular.module('shoplyApp')
     }
 
     $scope.dowmloadCertificate = function(){
-         $window.open('https://daimont.com.co:8443/certificate/' + $rootScope.user._id, '_blank');
+         $window.open('http://api.jacreditos.com:8443/certificate/' + $rootScope.user._id, '_blank');
 
     }
 

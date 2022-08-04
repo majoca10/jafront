@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-info">
-            <ul class="navbar-nav">
+            <ul class="ul-new">
                 <li ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a href="" style="top: 10px;position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="$root.user.data.picture" ng-src="{{$root.user.data.picture}}">
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="!$root.user.data.picture" class="rounded-circle img-raised" ng-src="images/no_avatar.gif">
@@ -72,49 +72,49 @@
                         <p>Administradores</p>
                     </a>
                 </li>
-                <li class="nav-item hidden-md-down" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated" style="margin-top: 10px;margin-right: 20px;">
+                <li class="hidden-md-down" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated">
                     <a href="#/dashboard" ui-sref="dashboard()" ui-sref="dashboard()" ui-sref-opts="{reload: true}" class="text-muted"><span style="font-size: 25px;" class="fa fa-home"></span></a>
                 </li>
-                 <li class="nav-item hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated" style="margin-top: 10px;">
+                 <li class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated" style="margin-top: 10px;">
                     <a href="#/dashboard" ui-sref="dashboard()" ui-sref="dashboard()" ui-sref-opts="{reload: true}" class="text-white"><span style="font-size: 25px;margin: 0 1.5rem;" class="fa fa-home"></span></a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && !current_credit">
-                    <a class="nav-link" href="#/perfil/update/basic" ui-sref="profile.basic()">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && !current_credit">
+                    <a href="#/perfil/update/basic" ui-sref="profile.basic()">
                         <p>Mis Datos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
-                    <a class="nav-link" href="#/nuevo-credito" ui-sref="dashboard.new_credit">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
+                    <a href="#/nuevo-credito" ui-sref="dashboard.new_credit">
                         <p>Nueva Solicitud</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
-                    <a class="nav-link" href="#/historial" ui-sref="dashboard.historial">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
+                    <a href="#/historial" ui-sref="dashboard.historial">
                         <p>Historial de préstamos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="(!$root.user.data.cupon_updated) && ($root.user.type == 'CLIENT')">
-                    <a class="nav-link" href="#/cupo" ui-sref="dashboard.cupo">
+                <li ui-sref-active="active" ng-show="(!$root.user.data.cupon_updated) && ($root.user.type == 'CLIENT')">
+                    <a href="#/cupo" ui-sref="dashboard.cupo">
                         <p>Ampliar cupo de préstamo</p>
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
-                    <a ui-sref="#" href="#">
+                    <a ui-sref="about()" href="#/about">
                         <p>JA Creditos</p>
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
-                    <a ui-sref="#" href="#">
+                    <a  href="#/#guia">
                         <p>Como solicitar tu préstamo</p>
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
-                    <a ui-sref="#" href="#">
+                    <a ui-sref="faq()" href="#/faq">
                         <p>Preguntas frecuentes</p>
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-show="!$root.user">
-                    <a ui-sref="#" href="#">
+                    <a href="#/#contacto">
                         <p>Contáctanos </p>
                     </a>
                 </li>
@@ -124,8 +124,8 @@
                         Ingresar
                     </a>
                 </li> 
-                <li class="nav-item hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT'">
-                    <a class="nav-link" ng-click="logout()">
+                <li class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT'">
+                    <a ng-click="logout()">
                         <p>Salir</p>
                     </a>
                 </li>
@@ -146,7 +146,6 @@
                             <a class="dropdown-item" ng-show="$root.user.type =='ADMINISTRATOR'"><button class="btn btn-sm btn-block" ng-class="$root._online ? 'btn-danger' : 'btn-success'"  ng-click="offlineMode()">{{$root._online ? 'Offline' : 'Online'}}</button></a>
                             <a class="dropdown-item" href="#" ng-click="logout()" >Salir</a>
                           </div
-                          </a>                   
                   </div>
                 </div>
             </ul>
@@ -154,54 +153,53 @@
     </div>
 </nav>
 <style>
-ul {
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-ul li {
-  display: inline-block;
-  vertical-align: top;
-}
-ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    line-height: 60px;
-    padding: 0 10px;
-    text-transform: uppercase;
-    letter-spacing: 0px;
-    position: relative;
-    font-weight: 150;
-    color: #fff;
-    font-family: system-ui;
-}
-ul li a:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #3498db;
-  z-index: -1;
-  /*transform: skewX(-30deg);*/
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-ul li:hover a,
-ul li:focus a,
-ul li.active a {
-  color: #fff;
-}
-ul li:hover a:after,
-ul li:focus a:after,
- 
-ul li.active a:after {
-  opacity: 1;
-}
-
-</style>
+    .ul-new {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .ul-new li {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .ul-new li a {
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        line-height: 60px;
+        padding: 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        position: relative;
+        font-weight: 150;
+        color: #fff;
+        font-family: system-ui;
+    }
+    .ul-new li a:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #3498db;
+      z-index: -1;
+      /*transform: skewX(-30deg);*/
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .ul-new  li:hover a,
+    .ul-new  li:focus a,
+    .ul-new  li.active a {
+      color: #fff;
+    }
+    .ul-new  li:hover a:after,
+    .ul-new  li:focus a:after,
+     
+    .ul-new  li.active a:after {
+      opacity: 1;
+    }
+    </style>

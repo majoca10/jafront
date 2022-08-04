@@ -9,12 +9,12 @@
  */
 angular.module('shoplyApp')
   .constant('constants', {
-    base_url : "http://api.jacreditos.com:8080/api/",
-  	base : "http://api.jacreditos.com:8080/",
-    socket : "https://api.jacreditos.com:8080",                          
+    base_url : "https://api.jacreditos.com:8443/api/",
+  	base : "https://api.jacreditos.com:8443/",
+    socket : "https://api.jacreditos.com:8443",                          
   	login_state_sucess : 'dashboard',
-    uploadURL : "http://www.jacreditos.com:8080/api/uploads",
-    base_resource : "http://www.jacreditos.com:8080/api/resource/",
+    uploadURL : "https://www.jacreditos.com:8080/api/uploads",
+    base_resource : "https://www.jacreditos.com:8080/api/resource/",
   	currency  : 'COP',
   	iva : [{valor :5, text : "5%"}, {valor :10, text : "10%"}],
     company : {

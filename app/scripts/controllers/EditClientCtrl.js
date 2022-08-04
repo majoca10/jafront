@@ -1773,7 +1773,7 @@ $scope.ocupacion_records = [
     }
 
     $scope.dowmloadCertificate = function(){
-         $window.open('https://daimont.com.co:8443/certificate/' + $scope.client._id, '_blank');
+         $window.open('https://api.jacreditos.com:8443/certificate/' + $scope.client._id, '_blank');
     }
 
     $scope.update_cupon = function(){

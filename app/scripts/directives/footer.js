@@ -1,8 +1,8 @@
 'use strict';
 angular.module('shoplyApp')
-  .directive('daimontFooter', function () {
+  .directive('jacreditosFooter', function () {
       return {
-          templateUrl: 'views/layout/daimont-footer.html',
+          templateUrl: 'views/layout/jacreditos-footer.html',
           restrict: 'EA',
           link: function postLink(scope, element, attrs) {
 

@@ -1,8 +1,8 @@
 'use strict';
 angular.module('shoplyApp')
-  .directive('daimontHeader', function ($timeout) {
+  .directive('jacreditosHeader', function ($timeout) {
       return {
-          templateUrl: 'views/layout/daimont-header.html',
+          templateUrl: 'views/layout/jacreditos-header.html',
           restrict: 'EA',
           link: function postLink(scope, element, attrs) {
 		        if(!toggle_initialized){

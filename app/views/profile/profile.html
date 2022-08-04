@@ -1,13 +1,13 @@
 <div class="login-page hidden-md-up" ng-controller="profileCtrl" ng-init="load()" style="margin-top:25px;">
-    <daimont-header></daimont-header>}
+    <jacreditos-header></jacreditos-header>}
         <div class="col-lg-12 hidden-md-up" style="margin-top:40px;margin-bottom: 80px;">
                 <div class="row xs-steps-bar">
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp"  ng-click="go_to('profile.basic')" ng-class="{active : state.current.name === 'profile.basic'}">1</a></div>  
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.references')" ng-class="{active : state.current.name === 'profile.references'}">2</a></div> 
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.location')" ng-class="{active : state.current.name === 'profile.location'}">3</a></div>  
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.finance')" ng-class="{active : state.current.name === 'profile.finance'}">4</a></div>  
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.bank')" ng-class="{active : state.current.name === 'profile.bank'}">5</a></div>  
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.resumen')" ng-class="{active : state.current.name === 'profile.resumen'}">6</a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp"  ng-click="go_to('profile.basic')" ng-class="{active : state.current.name === 'profile.basic'}"><i class="fa fa-address-card-o" aria-hidden="true"></i></a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.references')" ng-class="{active : state.current.name === 'profile.references'}"><i class="fa fa-users" aria-hidden="true"></i></a></div> 
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.location')" ng-class="{active : state.current.name === 'profile.location'}"><i class="fa fa-home" aria-hidden="true"></i></a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.finance')" ng-class="{active : state.current.name === 'profile.finance'}"><i class="fa fa-briefcase" aria-hidden="true"></i></a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.bank')" ng-class="{active : state.current.name === 'profile.bank'}"><i class="fa fa-university" aria-hidden="true"></i></a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.resumen')" ng-class="{active : state.current.name === 'profile.resumen'}"><i class="fa fa-database" aria-hidden="true"></i></a></div>  
                 </div>
                   <!-- fieldsets -->
                   <fieldset class="">
@@ -195,16 +195,12 @@
             </div>
         </div>
     </div>
-    <daimont-footer></daimont-footer>
+    <jacreditos-footer></jacreditos-footer>
 </div>
 <div class="dashboard hidden-md-down" ng-controller="profileCtrl" ng-init="load()" style="margin-top:75px;">
-<daimont-header></daimont-header>
+<jacreditos-header></jacreditos-header>
 <div class="container">
   <div class="row">
-      <ol class="breadcrumb" style="width:100%;margin-top:10px;">
-        <li class="breadcrumb-item active">Actualizacion de perfil de crédito</li>
-
-      </ol>
   </div>
 </div>
 <div class="container" style="background-color: #ffffff;padding: 20px;">
@@ -212,8 +208,7 @@
     <div class="panel-heading">
         <div class="row">
           <div class="col col-xs-6">
-            <h3 class="panel-title" style="margin-bottom: 10px;!important;"><i ng-show="client.data.facebookId" class="fa fa-facebook-official" aria-hidden="true"></i>
-                <i ng-show="!client.data.facebookId" class="fa fa-diamond text-primary text-primary" aria-hidden="true"></i>&nbsp;Actualización de perfil</h3>
+            <h3 class="panel-title" style="margin-bottom: 10px;!important;">Actualización de perfil</h3>
             <p class="text-muted">Por favor complete todo el formulario para realizar la solicitud de crédito</p>
           </div>
         </div>
@@ -226,11 +221,9 @@
         <h3>Información Basica</h3>
         <p class="text-muted">Actualize su información basica</p>  
         <div class="col-lg-12">
-          <div class="row alert alert-warning" role="alert" style="font-size:12px;position:relative;top:-12px;">
-                  <div class="container">
-                     Los nombres y apellidos deben ser escritos iguales a los de su cédula de ciudadanía. De lo contrario el contrato será <span class="text-danger">anulado</span> y tendrá que firmar uno nuevamente.</h3>
-                  </div>
-          </div>          
+                  <p>
+                    <i class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>&nbsp<span class="text-danger">Los nombres y apellidos deben ser escritos iguales a los de su cédula de ciudadanía. De lo contrario el contrato será anulado y tendrá que firmar uno nuevamente.</span></h3>
+                  </p>
         </div>
         <p class="text-danger text-center">{{$root.user.name + ' ' + $root.user.data.second_name + ' ' + $root.user.last_name + ' ' + $root.user.data.second_last_name}}</p>
         <form name="profile"> 
@@ -624,6 +617,6 @@
 <br />
 <br />
 </div>
-<daimont-footer></daimont-footer>
+<jacreditos-footer></jacreditos-footer>
 
 
