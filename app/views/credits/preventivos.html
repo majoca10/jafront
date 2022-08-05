@@ -125,18 +125,18 @@
               <span ng-show="record.data.rejected > 0" class="badge badge-danger has_rejected">{{record.data.rejected}}</span>
             </td>
             <td>
-              <span class="badge badge-default" ng-show="record.data.status == 'Pendiente'">PENDIENTE POR FIRMAR</span>
-              <span class="badge badge-primary" ng-show="record.data.status == 'Aceptado'">APROBADO</span>
-              <span class="badge badge-primary" ng-show="record.data.status == 'Firmado'">FIRMADO</span>
-              <span class="badge badge-primary" ng-show="record.data.status == 'Pagado'">PAGADO</span>
-              <span class="badge badge-success" ng-show="record.data.status == 'Consignado'">CONSIGNADO</span>
-              <span class="badge badge-success" ng-show="record.data.status == 'Preaprobado'">PRE-APROBADO</span>
-              <span class="badge badge-success" ng-show="record.data.status == 'Finalizado'">FINALIZADO</span>
-              <span class="badge badge-danger" ng-show="record.data.status == 'Rechazado'">RECHAZADO</span>
-              <span class="badge badge-danger" ng-show="record.data.status == 'Fraude'">FRAUDE</span>
-              <span class="badge badge-warning" ng-show="record.data.status == 'Dificil_recaudo'">DIFICIL RECAUDO</span>
-              <span class="badge badge-danger" ng-show="record.data.status == 'Anulado'">ANULADO</span>
-               <span class="badge badge-danger" ng-show="record.data.status == 'Morosos'">MOROSOS</span>
+              <span class="badge badge-default" style="color: black;" ng-show="record.data.status == 'Pendiente'">PENDIENTE POR FIRMAR</span>
+              <span class="badge badge-primary" style="color: black;" ng-show="record.data.status == 'Aceptado'">APROBADO</span>
+              <span class="badge badge-primary" style="color: black;" ng-show="record.data.status == 'Firmado'">FIRMADO</span>
+              <span class="badge badge-primary" style="color: black;" ng-show="record.data.status == 'Pagado'">PAGADO</span>
+              <span class="badge badge-success" style="color: black;" ng-show="record.data.status == 'Consignado'">CONSIGNADO</span>
+              <span class="badge badge-success" style="color: black;" ng-show="record.data.status == 'Preaprobado'">PRE-APROBADO</span>
+              <span class="badge badge-success" style="color: black;" ng-show="record.data.status == 'Finalizado'">FINALIZADO</span>
+              <span class="badge badge-danger" style="color: black;" ng-show="record.data.status == 'Rechazado'">RECHAZADO</span>
+              <span class="badge badge-danger" style="color: black;" ng-show="record.data.status == 'Fraude'">FRAUDE</span>
+              <span class="badge badge-warning" style="color: black;" ng-show="record.data.status == 'Dificil_recaudo'">DIFICIL RECAUDO</span>
+              <span class="badge badge-danger" style="color: black;" ng-show="record.data.status == 'Anulado'">ANULADO</span>
+               <span class="badge badge-danger" style="color: black;" ng-show="record.data.status == 'Morosos'">MOROSOS</span>
             </td>
             <td  ng-show="params.status == 'preventivo' || params.status == 'consignado' || params.status == 'finalizado' || params.status == 'morosos' ">{{(record.data.deposited_time_server || record.data.deposited_time | moment: 'format': 'MMMM DD YYYY, h:mm:ss a').toUpperCase()}}</td>
            

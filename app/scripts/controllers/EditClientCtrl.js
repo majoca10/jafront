@@ -1576,6 +1576,7 @@ $scope.ocupacion_records = [
 
             var refForArray = firebase.database().ref("profileMessages").child(res._id);
             var syncObject = $firebaseObject(refForArray);
+            console.log("db", firebase.database())
             syncObject.$bindTo($scope, "data");
            
             $scope.comments = $firebaseArray(refForArray);
@@ -2118,7 +2119,7 @@ $scope.ocupacion_records = [
                  type: "warning" },
                  function(isConfirm){ 
                      if (isConfirm) {
-                            firebase.database().ref("profileMessages").child($scope.client._id).child(_comment.$id).remove()
+                            firebase.database().ref("https://jacreditos-a50ec-default-rtdb.firebaseio.com/").child($scope.client._id).child(_comment.$id).remove()
                      }
           }); 
     }

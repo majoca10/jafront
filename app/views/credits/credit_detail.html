@@ -55,8 +55,8 @@
             <p class="text-muted">Información del credito actual.</p>
             <p class="text-muted" ng-show="credit._approvedby">Credito {{credit.data.status}} por {{(credit._approvedby.name + ' ' + credit._approvedby.last_name)}}</p>
            <p class="pull-left">
-            <span class="badge badge-success" ng-show="credit._user.data.updated">Actualizado</span>
-            <span class="badge badge-danger" ng-show="!credit._user.data.updated">Desactualizado</span></p>
+            <span class="badge badge-success" style="color: black;" ng-show="credit._user.data.updated">Actualizado</span>
+            <span class="badge badge-danger" style="color: black;" ng-show="!credit._user.data.updated">Desactualizado</span></p>
           </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
                                           <a class="nav-link"  ng-click="tab = 'LPA'" ng-class="{'active' : tab === 'LPA'}">Lista de Pagos</a>
                                       </li>
                                       <li class="nav-item">
-                                          <a class="nav-link" ng-click="tab = 'CO'" ng-class="{'active' : tab === 'CO'}">Comentarios <span class="badge badge-success" ng-show="comments.length > 0">{{comments.length}}</span></a>
+                                          <a class="nav-link" ng-click="tab = 'CO'" ng-class="{'active' : tab === 'CO'}">Comentarios <span class="badge badge-success" style="color: black;" ng-show="comments.length > 0">{{comments.length}}</span></a>
                                       </li> 
                                   </ul>
                                   <div class="card-block">
