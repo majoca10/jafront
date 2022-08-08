@@ -32,12 +32,18 @@
                                                 placeholder="Banco donde se realizó el pago"
                                                 set-object="$root.bank_obj"
                                                 key="name" 
-                                                show-all="true"
+                                                show-all="false"
                                                 label="name"
                                                 ng-model="bank_obj">
                                             </banks-field> 
                                         </div>
-                                    </div>  
+                                    </div>
+                                    <div class="col-lg-12" ng-show="$root.bank_obj.name == 'Efectivo'">
+                                        <div class="form-group">
+                                            <label><strong>Valor Abono</strong></label>
+                                            <input type="text" name="vabono"  ng-model="$parent.vabono" class="form-control"  placeholder="Valor Abono" value="vabono" />
+                                        </div>
+                                    </div>   
                                     <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label><strong>Fecha de pago del cliente</strong></label>
@@ -81,13 +87,17 @@
                                        </div>    
                                     </div>
                                     <input type="file" id="transaccion_bancaria" name="evidence" name="pic" accept="image/*, application/pdf" ng-model="file" required reader="$parent.new_payment_form.transaction" style="display:none;">
-                                    <input type="file" id="consignacion_bancaria" name="evidence" name="pic" accept="image/*, application/pdf" ng-model="file" required reader="$parent.new_payment_form.transaction" style="display:none;"> 
+                                    <input type="file" id="consignacion_bancaria" name="evidence" name="pic" accept="image/*, application/pdf" ng-model="file" required reader="$parent.new_payment_form.transaction" style="display:none;">
+                                    <input type="file" id="consignacion_efectivo" name="efectivo" name="pic" accept="image/*, application/pdf" ng-model="file" required reader="$parent.new_payment_form.transaction" style="display:none;"> 
                                     <div class="col-6">
                                         <button style="font-size: 12px;" ng-click="upload_transacion_bancaria()" ng-disabled="!bank_obj" class="btn btn-block btn-primary btn-sm" ><i class="fa fa-camera" aria-hidden="true"></i>&nbsp; &nbsp;TRANSFERENCIA</button>
                                     </div>   
                                     <div class="col-6">
                                         <button style="font-size: 12px;" ng-click="upload_consignacion_bancaria()" ng-disabled="!bank_obj" class="btn btn-block btn-primary btn-sm" ><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;CONSIGNACIÓN</button>
                                     </div>  
+                                    <div class="col-12" style="margin-top: 5px;">
+                                        <button style="font-size: 12px;" ng-click="upload_transacion_efectivo()" ng-disabled="!bank_obj" class="btn btn-block btn-primary btn-sm" ><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;EFECTIVO</button>
+                                    </div> 
                             </div>
                         </form>
                     </div>

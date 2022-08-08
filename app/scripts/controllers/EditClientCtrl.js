@@ -166,6 +166,14 @@ $scope.ocupacion_records = [
         placeholder:'Escribe tu ocupación actual'
     }; 
 
+    $scope.ppago_setup = { 
+        create:false, 
+        maxItems:1, 
+        valueField: 'value', 
+        labelField: 'text', 
+        searchField : 'value',
+        placeholder:'Periodo de Pago'
+    }; 
 
     $scope.ingresos_setup = { 
         plugins: ['hidden_textfield'],
@@ -342,10 +350,7 @@ $scope.ocupacion_records = [
                             createdAt : firebase.database.ServerValue.TIMESTAMP
                         };
 
-                        $scope.files.$add(data);
-
-                        $scope.client.data.cf = data; 
-
+                        $rootScope.user.data.cf = data; 
                         window.sweetAlert.close();
 
                     });
@@ -2119,7 +2124,7 @@ $scope.ocupacion_records = [
                  type: "warning" },
                  function(isConfirm){ 
                      if (isConfirm) {
-                            firebase.database().ref("https://jacreditos-a50ec-default-rtdb.firebaseio.com/").child($scope.client._id).child(_comment.$id).remove()
+                            firebase.database().ref("profileMessages").child($scope.client._id).child(_comment.$id).remove()
                      }
           }); 
     }

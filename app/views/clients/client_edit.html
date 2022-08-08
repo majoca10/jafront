@@ -11,8 +11,7 @@
           
           <button style="margin-right:20px;"  class="btn btn-danger pull-right btn-sm" ng-show="!client.data.blockedTemp" ng-click="blockAccountTemp()" ng-disabled="$root.user.type == 'SUPERVISOR'" >Bloquear temporal</button>
 
-        
-         <button  style="margin-right:20px;" class="btn btn-success pull-right btn-sm"  ng-click="enable_cupo()" ng-disabled="$root.user.type == 'SUPERVISOR'" ng-show="client.data.cupon_updated">Activar Cupo</button>
+          <button  style="margin-right:20px;" class="btn btn-success pull-right btn-sm"  ng-click="enable_cupo()" ng-disabled="$root.user.type == 'SUPERVISOR'" ng-show="client.data.cupon_updated">Activar Cupo</button>
           
           <button  style="margin-right:20px;" ng-show="!client.data.cupon_updated" class="btn btn-danger pull-right btn-sm"  ng-click="disable_cupo()" ng-disabled="client.type == 'SUPERVISOR'" >Desactivar Cupo</button>
 
@@ -416,6 +415,18 @@
                         <input type="text" name="placa" ng-model="client.data.placa" class="form-control"  placeholder="Placa" ng-class="{ 'form-control-danger' : (references.$submitted || references.placa.$touched) && references.placa.$invalid }" />
                     </div>
                   </div>
+                  <div class="col-lg-3"  class="form-group" style="margin-top:10px;">
+                    <label style="display:block;" class="text-muted">¿Credito Personalizado?  <span style="color:red;font-size: 10px;" ng-show=" (references.$submitted) && !client.data.vehiculo"></span></label>
+                          <label cclass="checkbox-inline text-muted">
+                            <input class="form-check-input" style="margin-left: 70px;" type="checkbox" name="custom" ng-model="client.custom">
+                          </label>
+                  </div>
+                  <div class="col-lg-3" ng-show="client.custom == true">
+                    <div class="form-group text-left">
+                         <label class="text-muted">Sistema de Pago</label>
+                         <selectize name="ppago" config="ppago_setup" options='[{value:"Diario", text:"Diario"}, {value:"Semanal", text:"Semanal"}, {value:"Quincenal", text:"Quincenal"}, {value:"Mensual", text:"Mensual"}]' ng-model="client.data.ppago"></selectize>     
+                    </div>
+                  </div>
                       </div> 
                     </form>
         <h3>Referencias</h3>
@@ -665,6 +676,13 @@
                       <input type="tel" name="numero_cuenta" required ng-model="client.data.numero_cuenta" class="form-control" placeholder="Número de cuenta" ng-class="{ 'form-control-danger' : (bank.$submitted || bank.numero_cuenta.$touched) && bank.numero_cuenta.$invalid }"  >
                       <span style="font-size: 10px;color: #a0a0a0;position: relative;"><i class="now-ui-icons business_bulb-63"></i>Escribir el número sin puntos o guiones.</span>
                   </div>       
+              </div>
+              <div class="col-lg-4">
+                <div class="form-check" style="margin-top: 37px;">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="custom" ng-model="client.custom" class="form-control" id="inlineCheckbox1" value="option1"> Credito Personalizado
+                  </label>
+                </div>
               </div>
           </div>
       </form>

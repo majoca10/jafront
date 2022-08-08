@@ -58,7 +58,7 @@
                                 <label style="color:#101010;" class="text-dark"><i class="now-ui-icons ui-1_calendar-60" ></i>&nbsp;Fecha de Pago:</label>
                             </div>
                             <div class="col-6 text-right">
-                                <p style="color:#101010;"><span class="badge badge-primary">{{ form.data.pay_day || current_date | moment: 'format': 'MMMM DD, YYYY' }}</span></p>
+                                <p><span class="badge badge-primary" style="color:#101010;">{{ form.data.pay_day || current_date | moment: 'format': 'MMMM DD, YYYY' }}</span></p>
                             </div> 
                             <div class="col-6 text-left">
                                 <label style="color:#101010;" class="text-dark">Monto Solicitado:</label>
@@ -213,7 +213,7 @@
                                 <br />
                                 <h5 class="text-left noselect">¿Cuándo puedes pagar?</h5>
                                 <i ng-click="$parent.dec_days_md()" style="cursor:pointer;position: relative;left: -220px;top: 13px;border:1px solid;border-radius:20%;padding:5px;" class="now-ui-icons ui-1_simple-delete"></i>
-                                <slider step="1" instance="$parent.days_instance_md" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
+                                <slider custom="true" step="5" instance="$parent.days_instance_md" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
                                 <i  ng-click="$parent.inc_days_md()" style="cursor:pointer;position: relative;right: -220px;top: -15px;border:1px solid;border-radius:20%;padding: 5px;" class="now-ui-icons ui-1_simple-add"></i>
                                 <div class="row noselect">
                                     <div style="font-size:20px;margin-top: 20px;" class="col-lg-6 text-left noselect"></div>

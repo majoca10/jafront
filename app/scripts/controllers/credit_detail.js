@@ -11,8 +11,13 @@ angular.module('shoplyApp')
   .controller('CreditDetailCtrl', function ($scope, modal,  api, storage, $state, $rootScope, $timeout, $stateParams, $firebaseObject, $firebaseArray, $http, $filter) {
     $scope.form = {};
     $scope.form.data = {};
-    $scope.form.data.finance_quoteFixed = 12990;
-    $scope.form.data.finance_quoteChange = 960;
+    if($rootScope.user.custom){
+      $scope.form.data.finance_quoteFixed = 10000;
+      $scope.form.data.finance_quoteChange = 100;
+    }else{
+      $scope.form.data.finance_quoteFixed = 12990;
+      $scope.form.data.finance_quoteChange = 960;
+    }
     $scope.new_payment_form = {};
     
 
@@ -142,6 +147,7 @@ angular.module('shoplyApp')
       $scope.paymentForm_30_day = {};
 
       $scope.payForDays_30  = 30
+      if(2.18831289){}
       $scope.paymentForm_30_day.interests = (parseInt($scope.credit.data.amount[0]) * (2.18831289 / 100));
       $scope.paymentForm_30_day.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.payForDays_30);
       $scope.paymentForm_30_day.iva = $scope.paymentForm_30_day.system_quote * (19 / 100);
@@ -406,7 +412,12 @@ angular.module('shoplyApp')
       //variable que contiene los dias de intereses
       $scope.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
 
-      $scope.mora.interests = (parseInt($scope.credit.data.amount[0]) * (2.18831289 / 100));
+      if($scope.credit._user.custom){
+        $scope.mora.interests = (parseInt($scope.credit.data.amount[0]) * (10 / 100));
+      }else{
+        $scope.mora.interests = (parseInt($scope.credit.data.amount[0]) * (2.18831289 / 100));
+      }
+      
 
       $scope.mora.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.payForDays);
       $scope.mora.iva = $scope.mora.system_quote * (19 / 100);
@@ -431,7 +442,12 @@ angular.module('shoplyApp')
     $scope.upload_transacion_bancaria = function(){
           $scope.payment_type = 'Transferencia';
           $('#transaccion_bancaria').click();
-    } 
+    }
+    
+    $scope.upload_transacion_efectivo = function(){
+      $scope.payment_type = 'Efectivo';
+      $('#consignacion_efectivo').click();
+}
 
     $scope.new_payment = function(cb){
       $scope.new_payment_form.data = $scope.mora;
@@ -440,21 +456,20 @@ angular.module('shoplyApp')
       $scope.new_payment_form.data.bank = $rootScope.bank_obj;
       $scope.new_payment_form._credit = $scope.credit._id;
       $scope.new_payment_form._user = $scope.credit._user._id;
+      $scope.new_payment_form.data.vabono = $scope.vabono; 
 
       if($scope.tipo_pago == "Abono"){
          $scope.new_payment_form.data.tipo_pago = "Abono";
       }else{
          $scope.new_payment_form.data.tipo_pago = "Finalizado";
       }
-
-      console.log("paymentForm", $scope.new_payment_form);
-
-      api.payments().add("update_payment_admin").post($scope.toFormData($scope.new_payment_form), {
+        console.log("vabono", $scope.new_payment_form.data.vabono)
+        api.payments().add("update_payment_admin").post($scope.toFormData($scope.new_payment_form), {
         transformRequest: angular.identity,
         headers: {'Content-Type':undefined, enctype:'multipart/form-data'}
         }).success(function(res){
               if(res){
-
+                  
                   $scope.credit._payment = $scope.credit._payment || [];
                   $scope.credit._payment.push(res._id);
                   $scope.credit._user = $scope.credit._user._id;

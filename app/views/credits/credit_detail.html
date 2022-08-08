@@ -73,7 +73,7 @@
                                           <a class="nav-link" style="border-radius:0;" ng-click="tab = 'IC'" ng-class="{'active' : tab === 'IC'}">Info del Cliente</a>
                                       </li>
                                       <li class="nav-item">
-                                          <a class="nav-link" style="border-radius:0;" ng-click="tab = 'IP'" ng-class="{'active' : tab === 'IP'}">Info de crédito</a>
+                                          <a class="nav-link" style="border-radius:0;" ng-click="tab = 'IP'" ng-class="{'active' : tab === 'IP'}">Info de Crédito</a>
                                       </li>
                                       <li class="nav-item">
                                           <a class="nav-link" style="border-radius:0;" ng-click="tab = 'IF'" ng-class="{'active' : tab === 'IF'}">Info Financiera</a>
@@ -99,7 +99,7 @@
                                                 </div>  
                                                 </div>
                                               </div>   
-                                              <div class="row"> 
+                                              <div class="row">
                                                 <div class="form-group col-lg-12">
                                                   <label class="bold">Numero de pagaré</label>
                                                   <p>{{credit.data.id}}</p>
@@ -237,7 +237,16 @@
                                           </div>                      
                                           </div>
                                         <div class="tab-pane" id="home1" role="tabpanel" ng-show="tab == 'IP'" ng-class="{'active' : tab == 'IP'}">
-                                              <div class="row"> 
+                                              <div class="row">
+                                                <div ng-show="credit._user.custom == true" class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Prestamos Personalizado</label>
+                                                  <p ng-show="credit._user.custom == true">Si</p>
+                                                  <p ng-show="credit._user.custom == false">No</p>
+                                                </div>
+                                                <div ng-show="credit._user.custom == true" class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Periodo de pago</label>
+                                                  <p>{{credit._user.data.ppago}}</p>
+                                                </div>  
                                                 <div class="form-group col-lg-6 text-left">
                                                     <label class="bold">Monto</label>
                                                     <p>{{credit.data.amount[0] | currency:"$ ":0 || 0}}</p>

@@ -33,21 +33,21 @@ angular.module('shoplyApp')
 
 	      window.modal = modal.show({templateUrl : 'views/administrators/edit_administrator.html', size:'lg', scope: this, backdrop: 'static', keyboard  : false}, function($scope){
 	        	if($scope.formEditAdministrator.$valid){
-	        			console.log("SCOPE", $scope);
+	        		console.log("SCOPE", $scope);
 	        		api.user($scope.formEdit._id).put($scope.formEdit).success(function(res){
 	        			if(res){
-	                    new NotificationFx({
-	                        message : '<p>Registro actualizado.</p>',
-	                        layout : 'growl',
-	                        effect : 'genie',
-	                        type : 'notice', // notice, warning or error
-	                        onClose : function() {
-	                          
-	                        }
-	                      }).show();   
+							new NotificationFx({
+								message : '<p>Registro actualizado.</p>',
+								layout : 'growl',
+								effect : 'genie',
+								type : 'notice', // notice, warning or error
+								onClose : function() {
+								
+								}
+							}).show();   
 
-	        			  $scope.load();
-	          			  $scope.$close();
+							$scope.load();
+							$scope.$close();
 	        			}
 	        		});
 	        	}

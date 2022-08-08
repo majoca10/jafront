@@ -6,8 +6,13 @@ angular.module('shoplyApp')
     $scope.records = [];
     $scope.form = {};
     $scope.form.data = {};
-    $scope.form.data.finance_quoteFixed = 12990;
-    $scope.form.data.finance_quoteChange = 960;
+    if($rootScope.user.custom){
+      $scope.form.data.finance_quoteFixed = 10000;
+      $scope.form.data.finance_quoteChange = 100;
+    }else{
+      $scope.form.data.finance_quoteFixed = 12990;
+      $scope.form.data.finance_quoteChange = 960;
+    }
 
     $scope.load = function(){
     	api.payments().add("all").get().success(function(res){
@@ -29,7 +34,12 @@ angular.module('shoplyApp')
 
       //variable que contiene los dias de intereses
       $scope.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
-      $scope.mora.interests = (parseInt(this.record._credit.data.amount[0]) * (2.18831289 / 100));
+      if($Scope.credit._user.custom){
+        $scope.mora.interests = (parseInt(this.record._credit.data.amount[0]) * (10 / 100));
+      }else{
+        $scope.mora.interests = (parseInt(this.record._credit.data.amount[0]) * (2.18831289 / 100));
+      }
+      
       $scope.mora.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.payForDays);
       $scope.mora.iva = $scope.mora.system_quote * (19 / 100);
       
@@ -117,6 +127,8 @@ angular.module('shoplyApp')
     $scope.finishedAbono = function(){
       var _credit = angular.copy(this.record._credit);
       var record = angular.copy(this.record);
+
+      console.log(record)
 
        modal.confirm({
                closeOnConfirm : true,

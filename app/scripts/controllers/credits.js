@@ -692,8 +692,12 @@ angular.module('shoplyApp')
           var now = moment(new Date().toISOString());
 
           this.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
-
+        if($rootScope.user.custom){
+          this.paymentForm.interests = (parseInt(this.record.data.amount[0]) * (10 / 100));
+        }else{
           this.paymentForm.interests = (parseInt(this.record.data.amount[0]) * (2.18831289/ 100));
+        }
+          
 
           this.paymentForm.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * this.payForDays);
           this.paymentForm.iva = this.paymentForm.system_quote * (19 / 100);
@@ -716,8 +720,11 @@ angular.module('shoplyApp')
       var now = moment(new Date().toISOString());
 
       $scope.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
-
-      $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (2.4991666667 / 100));
+      if($rootScope.user.custom){
+        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (10 / 100));
+      }else{
+        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (2.4991666667 / 100));
+      }
 
       $scope.paymentForm.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.payForDays);
       $scope.paymentForm.iva = $scope.paymentForm.system_quote * (19 / 100);

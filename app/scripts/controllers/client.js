@@ -42,8 +42,11 @@ angular.module('shoplyApp').controller('ClientCtrl', function ($scope, $rootScop
           var now = moment(new Date().toISOString());
 
           this.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
-
-          this.paymentForm.interests = (parseInt(this.recordcredit.data.amount[0]) * (2.18831289/ 100));
+            if($rootScope.user.custom){
+              this.paymentForm.interests = (parseInt(this.recordcredit.data.amount[0]) * (10/ 100));
+            }else{
+              this.paymentForm.interests = (parseInt(this.recordcredit.data.amount[0]) * (2.18831289/ 100));
+            }  
 
           this.paymentForm.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * this.payForDays);
           this.paymentForm.iva = this.paymentForm.system_quote * (19 / 100);

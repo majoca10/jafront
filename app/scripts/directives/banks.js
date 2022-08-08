@@ -6,22 +6,26 @@ angular.module('shoplyApp')
 
         if($scope.showAll){
             $scope.records = [
-              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'08280125459', nit:'901091741', owner:'DAIMONT S.A.S.', type:'Ahorros' },
-              {name : 'Davivienda', img : 'images/davivienda.png', account:'206000722424', owner:'LINA CONCEPCION PENATES CHIMA', cc:'1100690755', type:'Ahorros'},
-              {name : 'Banco BBVA', img : 'images/bbva.png', account:'488011560', nit:'9010917417', owner:'DAIMONT SAS', type:'Corriente' },
-              {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'592622575', owner:'LUIS FERNANDO ALVAREZ FLOREZ', cc:'1098735034', type:'Ahorros' },
+              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' },
+              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros'},
+              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Corriente' },
+              {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
               {name : 'Banco de Occidente', img : 'images/occidente.png' },
               {name : 'Banco AV Villas', img : 'images/avvillas.png'},
               {name : 'Banco Popular', img : 'images/popular.png'},
-              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'9362004758', owner:'LUIS FERNANDO ALVAREZ FLOREZ', cc:'1098735034', type:'Ahorros' }
+              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
+              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' }
+
             ]          
           }else{
             $scope.records = [
-              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'08280125459', nit:'901091741', owner:'DAIMONT S.A.S.', type:'Ahorros' },
-              {name : 'Davivienda', img : 'images/davivienda.png', account:'206000722424', owner:'LINA CONCEPCION PENATES CHIMA', cc:'1100690755', type:'Ahorros'},
-              {name : 'Banco BBVA', img : 'images/bbva.png', account:'488011560', nit:'9010917417', owner:'DAIMONT SAS', type:'Corriente' },
-              {name : 'Grupo AVAL', img : 'images/aval.png', account:'592622575', owner:'LUIS FERNANDO ALVAREZ FLOREZ', cc:'1098735034', type:'Ahorros' },
-              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'9362004758', owner:'LUIS FERNANDO ALVAREZ FLOREZ', cc:'1098735034', type:'Ahorros' }
+              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' },
+              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros'},
+              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Corriente' },
+              {name : 'Grupo AVAL', img : 'images/aval.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
+              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
+              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' }
+
             ]        
           } 
                
@@ -34,7 +38,7 @@ angular.module('shoplyApp')
           placeholder: $scope.placeholder || 'Bancos',
           maxItems: 1,
           searchField : $scope.searchby || 'name',
-          maxOptions : 8,
+          maxOptions : 10,
           openOnFocus : true,
           selectOnTab : true,
           setFocus : $scope.setFocus || false,

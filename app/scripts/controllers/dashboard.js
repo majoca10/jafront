@@ -13,8 +13,14 @@ angular.module('shoplyApp')
     $scope.current_date = new Date();
     $scope.form = {};
     $scope.form.data = {};
-    $scope.form.data.finance_quoteFixed = 12990;
-    $scope.form.data.finance_quoteChange = 960;
+    if($rootScope.user.custom){
+      $scope.form.data.finance_quoteFixed = 10000;
+      $scope.form.data.finance_quoteChange = 100;
+    }else{
+      $scope.form.data.finance_quoteFixed = 12990;
+      $scope.form.data.finance_quoteChange = 960;
+    }
+    
 
     $scope.items_tasks = [];
     $scope.records = [];
@@ -23,11 +29,12 @@ angular.module('shoplyApp')
     $scope.is_transfered = false;
 
       $scope.banks = [
-        {name : 'Bancolombia', img : 'images/bancolombia.png', account:'123456789011', nit:'123456789', owner:'JACREDITOS', type:'Ahorros' },
+        {name : 'Bancolombia', img : 'images/bancolombia.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' },
         {name : 'Davivienda', img : 'images/davivienda.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros'},
-        {name : 'Banco BBVA', img : 'images/bbva.png', account:'123456789011', nit:'123456789', owner:'JACREDITOS', type:'Ahorros' },
+        {name : 'Banco BBVA', img : 'images/bbva.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' },
         {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
-        {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' }
+        {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
+        {name : 'Efectivo', img : 'images/pefectivo.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' }
       ]  
 
     $scope.disableSliderControls = function(){
@@ -695,7 +702,11 @@ angular.module('shoplyApp')
       }
 
       $scope.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
-      $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (2.18831289 / 100));
+      if($rootScope.user.custom){
+        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (10 / 100));
+      }else{
+        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (2.18831289 / 100));
+      }
       $scope.paymentForm.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.payForDays);
       $scope.paymentForm.iva = $scope.paymentForm.system_quote * (19 / 100);
       
@@ -787,8 +798,13 @@ angular.module('shoplyApp')
                     $scope.show_warning_msg = false;
               }*/
                
-
-              $scope.form.data.interests = (n[0] * (2.18831289 / 100));
+              if($rootScope.user.custom){
+                $scope.form.data.interests = (n[0] * (10 / 100));
+                $scope.form.data.customDayrange = [1, 365]; 
+              }else{
+                $scope.form.data.interests = (n[0] * (2.18831289 / 100));
+                $scope.form.data.customDayrange = [1, 30];
+              }
               $scope.form.data.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.form.data.days[0]);
               $scope.form.data.iva = (($scope.form.data.system_quote + $scope.form.data.finance_quote) * (19 / 100));
               
@@ -811,7 +827,11 @@ angular.module('shoplyApp')
                     $scope.show_warning_msg = false;
               }*/
 
-              $scope.form.data.interests = (o[0] * (2.18831289 / 100));
+              if($rootScope.user.custom){
+                $scope.form.data.interests = (o[0] * (10 / 100));
+              }else{
+                $scope.form.data.interests = (o[0] * (2.18831289 / 100));
+              }
               $scope.form.data.system_quote = ($scope.form.data.finance_quoteFixed + $scope.form.data.finance_quoteChange * $scope.form.data.days[0]);
 
               $scope.form.data.iva = (($scope.form.data.system_quote + $scope.form.data.finance_quote) * (19 / 100));
