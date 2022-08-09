@@ -641,6 +641,7 @@ $scope.ocupacion_records = [
             error_stack.push("Banco Donde recibiras el dinero");
         }
 
+
         if(error_stack.length > 0){
             var text = SmartPhone.isAny() ? 'Todos los campos son requeridos por favor verifique.'  : "estos campos son obligatorios: " + error_stack.join(", ")
            sweetAlert.swal("Formulario Incompleto.", text, "error");
@@ -871,6 +872,10 @@ $scope.ocupacion_records = [
          $state.go('home');
     }
 
+    $scope.upload_ca = function(){
+        $('#ca').click();
+    }
+
     $scope.upload_cf = function(){
         $('#cf').click();
       }
@@ -878,6 +883,30 @@ $scope.ocupacion_records = [
       $scope.upload_cl = function(){
         $('#cl').click();
       }
+
+      $scope.upload_dt = function(){
+        $('#dt').click();
+    }
+
+  $scope.upload_dt2 = function(){
+        $('#dt2').click();
+    }
+
+  $scope.upload_re = function(){
+        $('#re').click();
+    }
+
+    $scope.upload_ce = function(){
+        $('#ce').click();
+    }
+
+    $scope.upload_ex = function(){
+        $('#ex').click();
+    }
+
+    $scope.upload_ex2 = function(){
+        $('#ex2').click();
+    }
 
 
       $scope.removeFile = function(campo){
@@ -897,7 +926,383 @@ $scope.ocupacion_records = [
            $scope.$apply();
           });
       }
+
+      $scope.$watch("ca", function(o, n){
+        if(n){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.cam.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.cam);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
   
+                      uploadTask.$complete(function(snapshot) {
+                          var data = {
+                              filename : $scope.cam.name,
+                              size : $scope.cam.size,
+                              path : snapshot.downloadURL,
+                              type : 'ca',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          } ;
+  
+                          $rootScope.user.data.ca = data; 
+                          window.sweetAlert.close();
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+  
+        if(o){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.cam.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.cam);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
+  
+                      uploadTask.$complete(function(snapshot) {
+                        var data = {
+                              filename : $scope.cam.name,
+                              size : $scope.cam.size,
+                              path : snapshot.downloadURL,
+                              type : 'ca',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          }
+
+                          $rootScope.user.data.ca = data; 
+                          window.sweetAlert.close();
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+      });
+  
+      $scope.$watch("ce", function(o, n){
+        if(n){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.ce.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.ce);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
+  
+                      uploadTask.$complete(function(snapshot) {
+                        var data = {
+                              filename : $scope.ce.name,
+                              size : $scope.ce.size,
+                              path : snapshot.downloadURL,
+                              type : 'ce',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          };
+  
+                          $rootScope.user.data.ce = data;
+  
+                          window.sweetAlert.close();
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+  
+        if(o){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.ce.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.ce);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
+  
+                      uploadTask.$complete(function(snapshot) {
+                        var data = {
+                              filename : $scope.ce.name,
+                              size : $scope.ce.size,
+                              path : snapshot.downloadURL,
+                              type : 'ce',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          };
+                                $rootScope.user.data.ce = data;
+                                window.sweetAlert.close();
+                          
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+      });
+
+      $scope.$watch("ex", function(o, n){
+        if(n){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.ex.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.ex);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
+  
+                      uploadTask.$complete(function(snapshot) {
+                        var data = {
+                              filename : $scope.ex.name,
+                              size : $scope.ex.size,
+                              path : snapshot.downloadURL,
+                              type : 'ex',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          };
+  
+                          
+                          $rootScope.user.data.ex = data;
+  
+                          window.sweetAlert.close();
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+  
+        if(o){
+              swal({
+              title: "Está Seguro?",
+              text: "¿Deseas subir este archivo?",
+              type: "info",
+              confirmButtonColor: "#008086",
+              cancelButtonText: "Cancelar",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(){
+                    var storage = firebase.storage().ref("/files/" + $rootScope.user._id + "/" + $scope.ex.name);
+                    var st = $firebaseStorage(storage);
+                    var uploadTask = st.$put($scope.ex);
+                    
+                    uploadTask.$progress(function(snapshot) {
+                              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                              switch (snapshot.state) {
+                                  case firebase.storage.TaskState.PAUSED:
+                                      console.log('Upload is paused');
+                                      break;
+                                  case firebase.storage.TaskState.RUNNING:
+                                      console.log('Upload is running');
+                                      break;
+                              }
+                      }); 
+  
+                      uploadTask.$complete(function(snapshot) {
+                        var data = {
+                              filename : $scope.ex.name,
+                              size : $scope.ex.size,
+                              path : snapshot.downloadURL,
+                              type : 'ex',
+                              createdAt : firebase.database.ServerValue.TIMESTAMP
+                          };
+  
+                          $rootScope.user.data.ex = data;
+                          window.sweetAlert.close();
+  
+                      });
+  
+                      uploadTask.$error(function(error) {
+                          var msg = '';
+                          switch (error.code) {
+                              case 'storage/unauthorized':
+                              msg = 'User does not have permission to access the object.';
+                              break;
+                              case 'storage/canceled':
+                              msg = 'User canceled the upload.';
+                              break;
+                              case 'storage/unknown':
+                              msg = ' Unknown error occurred, Please try later.';
+                              break;
+                          }
+  
+                          window.sweetAlert.close();
+                      });
+            });
+        }
+      });
+  
+
     $scope.$watch("cf", function(o, n){
         if(n){
               swal({

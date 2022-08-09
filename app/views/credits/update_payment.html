@@ -20,7 +20,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label><strong>Nueva fecha de pago</strong></label>
-                                            <date-picker placeholder="Nueva fecha de pago" ng-model="$parent.new_date_payment"></date-picker>
+                                            <date-picker required placeholder="Nueva fecha de pago" ng-model="$parent.new_date_payment"></date-picker>
                                         </div>
                                     </div>  
                                     <div class="col-lg-12">
@@ -41,7 +41,7 @@
                                     <div class="col-lg-12" ng-show="$root.bank_obj.name == 'Efectivo'">
                                         <div class="form-group">
                                             <label><strong>Valor Abono</strong></label>
-                                            <input type="text" name="vabono"  ng-model="$parent.vabono" class="form-control"  placeholder="Valor Abono" value="vabono" />
+                                            <input type="text" name="vabono" required ng-model="$parent.vabono" class="form-control"  placeholder="Valor Abono" value="vabono" />
                                         </div>
                                     </div>   
                                     <div class="col-lg-6">

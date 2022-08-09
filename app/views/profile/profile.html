@@ -2,7 +2,7 @@
     <jacreditos-header></jacreditos-header>}
         <div class="col-lg-12 hidden-md-up" style="margin-top:40px;margin-bottom: 80px;">
                 <div class="row xs-steps-bar">
-                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp"  ng-click="go_to('profile.basic')" ng-class="{active : state.current.name === 'profile.basic'}"><i class="fa fa-address-card-o" aria-hidden="true"></i></a></div>  
+                  <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp"  ng-click="go_to('profile.basic')" ng-class="{active : state.current.name === 'profile.basic'}"><i class="fa fa-address-card-o" aria-hidden="true" ></i></a></div>  
                   <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.references')" ng-class="{active : state.current.name === 'profile.references'}"><i class="fa fa-users" aria-hidden="true"></i></a></div> 
                   <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.location')" ng-class="{active : state.current.name === 'profile.location'}"><i class="fa fa-home" aria-hidden="true"></i></a></div>  
                   <div class="col text-center"><a href="" class="text-white xs-steps animated fadeInUp" ng-click="go_to('profile.finance')" ng-class="{active : state.current.name === 'profile.finance'}"><i class="fa fa-briefcase" aria-hidden="true"></i></a></div>  
@@ -224,9 +224,9 @@
         <h3>Información Basica</h3>
         <p class="text-muted">Actualize su información basica</p>  
         <div class="col-lg-12">
-                  <p>
-                    <i class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>&nbsp<span class="text-danger">Los nombres y apellidos deben ser escritos iguales a los de su cédula de ciudadanía. De lo contrario el contrato será anulado y tendrá que firmar uno nuevamente.</span></h3>
-                  </p>
+          <p><i class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>&nbsp<span class="text-danger">Los nombres y apellidos deben ser escritos iguales a los de su cédula de ciudadanía. De lo contrario el contrato será anulado y tendrá que firmar uno nuevamente.</span></h3></p>
+          <p><i class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>&nbsp<span class="text-danger">Tener disponible la cédula de ciudadanía scaneada o foto de ambos lados (obligatorio).</span></h3></p>
+          <p><i class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>&nbsp<span class="text-danger">Tener disponible el certificado bancario, extracto bancario o recibo de servicio publico (opcional).</span></h3></p>
         </div>
         <p class="text-danger text-center" ng-model="$root.user.full_name" class="form-control" name="full_name">{{$root.user.name + ' ' + $root.user.data.second_name + ' ' + $root.user.last_name + ' ' + $root.user.data.second_last_name}}</p>
         <form name="profile"> 
@@ -601,12 +601,12 @@
           <h3>Documentación</h3>
           <div class="row" style="margin-bottom: 15px;"> 
             <div class="col-lg-4">
-                <div class="form-group" ng-class="{ 'has-danger' : (profile.$submitted || profile.cf.$touched) && profile.cf.$invalid }">
-                  <label class="label" style="display:block;">Cedula F.(Requerido)<span style="color:red;font-size: 10px;" ng-show=" (profile.$submitted) && profile.cf.$invalid"> Este campo es requerido</span></label>
+                <div class="form-group">
+                  <label class="label" style="display:block;">Cedula F.(Requerido)</label>
                    <div ng-hide="$root.user.data.cf" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_cf()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Frontal</button>
                   </div>
-                   <input type="file" id="cf" name="evidence" name="cf" accept="image/*, application/pdf" ng-model="cfm" required reader="cf" style="display:none;">
+                   <input type="file" id="cf" name="evidence" name="cf" accept="image/*, application/pdf" ng-model="cfm" reader="cf" style="display:none;">
                 </div> 
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.cf" >
                 <a href="{{$root.user.data.cf.path}}" target="_blank" class="btn btn-primary">Ver</a>
@@ -615,11 +615,11 @@
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="label" style="display:block;">Cedula T (Requerido)</label>
+                  <label class="label" style="display:block;">Cedula T (Requerido)<span style="color:red;font-size: 10px;" ng-show=" (profile.$submitted) && profile.cl.$invalid"> Este campo es requerido</span></label>
                    <div  ng-hide="$root.user.data.cl" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_cl()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Trasera</button>
                   </div>
-                   <input type="file" id="cl" name="cl" name="pic" accept="image/*, application/pdf" ng-model="cl" required reader="clm" style="display:none;">
+                   <input type="file" id="cl" name="cl" name="pic" accept="image/*, application/pdf" ng-model="cl" reader="clm" style="display:none;">
                 </div> 
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.cl" >
                 <a href="{{$root.user.data.cl.path}}" target="_blank" class="btn btn-primary">Ver</a>
@@ -629,47 +629,47 @@
             <div class="col-lg-4">
                 <div class="form-group">
                   <label class="label" style="display:block;">Ambas (Opcional)</label>
-                   <div   ng-hide="client.data.ca" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                   <div   ng-hide="$root.user.data.ca" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_ca()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Ambas</button>
                   </div>
                    <input type="file" id="ca" name="evidence" name="ca" accept="image/*, application/pdf" ng-model="ca" reader="cam" style="display:none;">
                 </div> 
-              <div class="btn-group btn-group-sm" ng-show="client.data.ca" >
-                <a href="{{client.data.ca.path}}" target="_blank" class="btn btn-primary">Ver</a>
-                <button type="button" class="btn btn-danger" ng-click="removeFile(client.data.ca.$id, 'ca')">Quitar</button>
+              <div class="btn-group btn-group-sm" ng-show="$root.user.data.ca" >
+                <a href="{{$root.user.data.ca.path}}" target="_blank" class="btn btn-primary">Ver</a>
+                <button type="button" class="btn btn-danger" ng-click="removeFile('ca')">Quitar</button>
               </div>           
             </div>
             <div class="col-lg-4" >
                 <div class="form-group">
                   <label class="label" style="display:block;">Certificado (Opcional)</label>
-                   <div ng-hide="client.data.ce" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                   <div ng-hide="$root.user.data.ce" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_ce()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Certificado</button>
                   </div>
                    <input type="file" id="ce" name="evidence" name="ce" accept="image/*, application/pdf" ng-model="cem" reader="ce" style="display:none;">
                 </div>
-              <div class="btn-group btn-group-sm" ng-show="client.data.ce">
-                <a href="{{client.data.ce.path}}" target="_blank" class="btn btn-primary">Ver</a>
-                <button type="button" class="btn btn-danger" ng-click="removeFile(client.data.ce.$id, 'ce')">Quitar</button>
+              <div class="btn-group btn-group-sm" ng-show="$root.user.data.ce">
+                <a href="{{$root.user.data.ce.path}}" target="_blank" class="btn btn-primary">Ver</a>
+                <button type="button" class="btn btn-danger" ng-click="removeFile('ce')">Quitar</button>
               </div>          
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
                   <label class="label" style="display:block;">Extracto (Opcional)</label>
-                   <div  ng-hide="client.data.ex" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                   <div  ng-hide="$root.user.data.ex" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button  ng-click="upload_ex()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Extracto</button>
                   </div>
                    <input type="file" id="ex" name="evidence" name="ex" accept="image/*, application/pdf" ng-model="exm" reader="ex" style="display:none;">
                 </div>
-              <div class="btn-group btn-group-sm" ng-show="client.data.ex">
-                <a href="{{client.data.ex.path}}" target="_blank" class="btn btn-primary">Ver</a>
-                <button type="button" class="btn btn-danger" ng-click="removeFile(client.data.ex.$id, 'ex')">Quitar</button>
+              <div class="btn-group btn-group-sm" ng-show="$root.user.data.ex">
+                <a href="{{$root.user.data.ex.path}}" target="_blank" class="btn btn-primary">Ver</a>
+                <button type="button" class="btn btn-danger" ng-click="removeFile('ex')">Quitar</button>
               </div>            
             </div>
          </div>
       </form>
       <div class="row">
         <div class="col-lg-12">
-          <button class="btn btn-primary" ng-click="update()" ng-disabled="profile.$invalid">Continuar</button>
+          <button ng-show="$root.user.data.cf.path && $root.user.data.cl.path" class="btn btn-primary" ng-click="update()" ng-disabled="profile.$invalid">Continuar</button>
           <a  href="#/clients" ui-sref="clients()" class="btn btn-waring">Cancelar</a>        
         </div>
       </div>

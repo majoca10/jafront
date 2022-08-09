@@ -15,10 +15,10 @@ angular.module('shoplyApp')
     $scope.form.data = {};
     if($rootScope.user.custom){
       $scope.form.data.finance_quoteFixed = 10000;
-      $scope.form.data.finance_quoteChange = 100;
+      $scope.form.data.finance_quoteChange = 300;
     }else{
       $scope.form.data.finance_quoteFixed = 12990;
-      $scope.form.data.finance_quoteChange = 960;
+      $scope.form.data.finance_quoteChange = 700;
     }
     
 

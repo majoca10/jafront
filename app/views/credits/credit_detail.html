@@ -245,7 +245,12 @@
                                                 </div>
                                                 <div ng-show="credit._user.custom == true" class="form-group col-lg-6 text-left">
                                                   <label class="bold">Periodo de pago</label>
-                                                  <p>{{credit._user.data.ppago}}</p>
+                                                  <p ng-show="credit._user.custom == true">{{credit._user.data.ppago}}</p>
+                                                  <p ng-show="credit._user.custom == false">30</p>
+                                                </div>
+                                                <div ng-show="credit._user.custom == true" class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Fecha Proximo pago</label>
+                                                  <p><strong>{{(credit._user.data.createdAt | moment: 'format': 'MMMM DD YYYY,').toUpperCase()}} <span><a ng-hide="$root.user.type == 'SUPERVISOR'" href="" ng-click="update_cupon()"> -  Editar</a></span></strong></p>
                                                 </div>  
                                                 <div class="form-group col-lg-6 text-left">
                                                     <label class="bold">Monto</label>
@@ -285,19 +290,19 @@
                                                 </div>
                                                 <div class="form-group col-lg-6 text-left" ng-show="credit.data.deposited_time">
                                                     <label class="bold">Fecha de Consignación</label>
-                                                    <p>{{(credit.data.deposited_time | moment: 'format': 'MMMM DD YYYY, h:mm:ss a').toUpperCase()}}</p>
+                                                    <p>{{(credit.data.deposited_time | moment: 'format': 'MMMM DD YYYY,').toUpperCase()}}</p>
                                                 </div> 
                                                 <div class="form-group col-lg-6 text-left">
                                                     <label class="bold">Fecha de solicitud</label>
-                                                    <p>{{(credit._contract.createdAt | moment: 'format': 'MMMM DD YYYY, h:mm:ss a').toUpperCase()}}</p>
+                                                    <p>{{(credit._contract.createdAt | moment: 'format': 'MMMM DD YYYY,').toUpperCase()}}</p>
                                                 </div> 
                                                 <div class="form-group col-lg-6 text-left">
                                                     <label class="bold">Fecha de pago</label>
-                                                    <p>{{(credit.data.pay_day | moment: 'format': 'MMMM DD, YYYY,  h:mm:ss a').toUpperCase()}}</p>
+                                                    <p>{{(credit.data.pay_day | moment: 'format': 'MMMM DD, YYYY,').toUpperCase()}}</p>
                                                 </div> 
                                                 <div class="form-group col-lg-6 text-left">
-                                                    <label class="bold">Fecha limite de pago a 30 días</label>
-                                                    <p>{{(payday_30days | moment: 'format': 'MMMM DD, YYYY,  h:mm:ss a').toUpperCase()}}</p>
+                                                    <label class="bold">Fecha limite de pago</label>
+                                                    <p>{{(payday_30days | moment: 'format': 'MMMM DD, YYYY,').toUpperCase()}}</p>
                                                 </div>
 
                                                 <div class="form-group col-lg-6 text-left">

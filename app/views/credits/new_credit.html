@@ -34,7 +34,7 @@
       </div>
       <i ng-click="dec_days_mv()" class="now-ui-icons ui-1_simple-delete decrement_button"></i>
       <div style="width: 80%;margin: 0 auto;">
-          <slider step="1" instance="$parent.days_instance_mv" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
+          <slider custom="true" step="1" instance="$parent.days_instance_mv" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
       </div>
       <i  ng-click="inc_days_mv()" class="now-ui-icons ui-1_simple-add increment_button"></i>
       <div class="row" style="padding-right:10px;">
@@ -213,7 +213,7 @@
                                 <br />
                                 <h5 class="text-left noselect">¿Cuándo puedes pagar?</h5>
                                 <i ng-click="$parent.dec_days_md()" style="cursor:pointer;position: relative;left: -220px;top: 13px;border:1px solid;border-radius:20%;padding:5px;" class="now-ui-icons ui-1_simple-delete"></i>
-                                <slider custom="true" step="5" instance="$parent.days_instance_md" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
+                                <slider custom="true" step="1" instance="$parent.days_instance_md" ng-model="form.data.days" initial="15" range="[1, 30]"></slider>
                                 <i  ng-click="$parent.inc_days_md()" style="cursor:pointer;position: relative;right: -220px;top: -15px;border:1px solid;border-radius:20%;padding: 5px;" class="now-ui-icons ui-1_simple-add"></i>
                                 <div class="row noselect">
                                     <div style="font-size:20px;margin-top: 20px;" class="col-lg-6 text-left noselect"></div>

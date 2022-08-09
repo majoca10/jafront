@@ -175,6 +175,15 @@ $scope.ocupacion_records = [
         placeholder:'Periodo de Pago'
     }; 
 
+    $scope.ncuotas_setup = { 
+        create:false, 
+        maxItems:1, 
+        valueField: 'value', 
+        labelField: 'text', 
+        searchField : 'value',
+        placeholder:'Numero de Cuotas'
+    };
+
     $scope.ingresos_setup = { 
         plugins: ['hidden_textfield'],
         create:true, 
@@ -2066,6 +2075,7 @@ $scope.ocupacion_records = [
                 delete $scope.client.data.re.$id;
                 delete $scope.client.data.re.$priority;  
             }
+
             api.user().add($scope.client._id).put($scope.client).success(function(res){
                 if(res){
                 $scope.client.data.cupon_updated = true;
@@ -2188,6 +2198,12 @@ $scope.ocupacion_records = [
         function(){
           delete $scope.client.data.ingresos_obj.$order;
           delete $scope.client.data.egresos_obj.$order;
+          console.log("antes de entrar al if", $scope.client.password)
+          if($scope.client.password){
+            console.log("dentro del if", $scope.client.password)
+            delete $scope.client.password
+            console.log("despues del if", $scope.client.password)
+          }
             if( $scope.client.data.cf){
                 delete $scope.client.data.cf.$id;
                 delete $scope.client.data.cf.$priority;
