@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md fixed-top" style="background-color:#000!important;margin:0px;" data-nav-image="images/blurred-image-1.jpg">
+<nav class="navbar navbar-toggleable-md fixed-top" style="background-color:#000!important;margin:0px;" data-nav-image="images/blurred-image-1.jpg, width: 160px">
     <div class="container" style="width:100%;">
         <div class="navbar-translate">
             <button class="navbar-toggler navbar-toggler-right" data-nav-image="" type="button" data-toggle="collapse" data-target="#example-navbar-info" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,111 +20,111 @@
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-info">
-            <ul class="navbar-nav">
-                <li class="nav-item" ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a class="nav-link"  href="" style="top: 10px;position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
+            <ul class="ul-new">
+                <li ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a class="nav-link"  href="" style="top: 10px;position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="$root.user.data.picture" ng-src="{{$root.user.data.picture}}">
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="!$root.user.data.picture" class="rounded-circle img-raised" ng-src="images/no_avatar.gif">
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/preventivos" ui-sref="preventivos()">
                         <p>Cobro preventivo</p>
                          <span class="badge badge-success" ng-show="result_length_preventivo > 0">{{result_length_preventivo}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/credits" ui-sref="credits({status : 'firmado'})">
                         <p>Solicitudes</p>
                          <span class="badge badge-success" ng-show="result_length > 0">{{result_length}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/credits" ui-sref="credits({status : 'pendiente_48'})">
                         <p>Pendientes</p>
                          <span class="badge badge-success" ng-show="result_length_pendiente_48 > 0">{{result_length_pendiente_48}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/credits" ui-sref="credits({status : 'preaprobado'})">
                         <p>Pre-aprobados</p>
                         <span class="badge badge-success" ng-show="$root.result_length_preaprobado > 0">{{$root.result_length_preaprobado}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/credits" ui-sref="credits({status : 'aceptado'})">
                         <p>Aprobados</p>
                          <span class="badge badge-success" ng-show="$root.result_length_aprobado > 0">{{$root.result_length_aprobado}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/paymens" ui-sref="payments()">
                         <p>Pagos</p>
                         <span class="badge badge-success" ng-show="payments_records.length > 0">{{payments_records.length}}</span>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/clients" ui-sref="clients()">
                         <p>Clientes</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/administrators" ui-sref="administrators()">
                         <p>Administradores</p>
                     </a>
                 </li>
-                <li class="nav-item" class="hidden-md-down" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated">
+                <li class="hidden-md-down" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated">
                     <a class="nav-link"  href="#/dashboard" ui-sref="dashboard()" ui-sref="dashboard()" ui-sref-opts="{reload: true}" class="text-muted"><span style="font-size: 25px;" class="fa fa-home"></span></a>
                 </li>
-                 <li class="nav-item" class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated" style="margin-top: 10px;">
+                 <li class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated" style="margin-top: 10px;">
                     <a class="nav-link"  href="#/dashboard" ui-sref="dashboard()" ui-sref="dashboard()" ui-sref-opts="{reload: true}" class="text-white"><span style="font-size: 25px;margin: 0 1.5rem;" class="fa fa-home"></span></a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && !current_credit">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && !current_credit">
                     <a class="nav-link"  href="#/perfil/update/basic" ui-sref="profile.basic()">
                         <p>Mis Datos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
                     <a class="nav-link"  href="#/nuevo-credito" ui-sref="dashboard.new_credit">
                         <p>Nueva Solicitud</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
+                <li ui-sref-active="active" ng-show="$root.user.type == 'CLIENT' && $root.user.data.updated && !current_credit">
                     <a class="nav-link"  href="#/historial" ui-sref="dashboard.historial">
                         <p>Historial de préstamos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="(!$root.user.data.cupon_updated) && ($root.user.type == 'CLIENT')">
+                <li ui-sref-active="active" ng-show="(!$root.user.data.cupon_updated) && ($root.user.type == 'CLIENT')">
                     <a class="nav-link"  href="#/cupo" ui-sref="dashboard.cupo">
                         <p>Ampliar cupo de préstamo</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
+                <li ui-sref-active="active" ng-show="!$root.user">
                     <a class="nav-link"  ui-sref="about()" href="#/about">
                         <p>JA Creditos</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
+                <li ui-sref-active="active" ng-show="!$root.user">
                     <a class="nav-link"   href="#/#guia">
                         <p>Como solicitar tu préstamo</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
+                <li ui-sref-active="active" ng-show="!$root.user">
                     <a class="nav-link"  ui-sref="faq()" href="#/faq">
                         <p>Preguntas frecuentes</p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-show="!$root.user">
+                <li ui-sref-active="active" ng-show="!$root.user">
                     <a class="nav-link"  href="#/#contacto">
                         <p>Contáctanos </p>
                     </a>
                 </li>
-                <li class="nav-item" ui-sref-active="active" ng-hide="$root.user">
+                <li ui-sref-active="active" ng-hide="$root.user">
                     <a class="nav-link"  ui-sref="login()" href="#/login">
                         <i class="fa fa-sign-in hidden-md-down" style="color: #00989e;"></i>
                         Ingresar
                     </a>
                 </li> 
-                <li class="nav-item" class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT'">
+                <li class="hidden-md-up" ui-sref-active="active" ng-show="$root.user.type == 'CLIENT'">
                     <a class="nav-link"  ng-click="logout()">
                         <p>Salir</p>
                     </a>
@@ -152,3 +152,54 @@
         </div>
     </div>
 </nav>
+<style>
+.ul-new {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .ul-new li {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .ul-new li a {
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+      line-height: 60px;
+      padding: 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0px;
+      position: relative;
+      font-weight: 150;
+      color: #fff;
+      font-family: system-ui;
+  }
+  .ul-new li a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3498db;
+    z-index: -1;
+    /*transform: skewX(-30deg);*/
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .ul-new  li:hover a,
+  .ul-new  li:focus a,
+  .ul-new  li.active a {
+    color: #fff;
+  }
+  .ul-new  li:hover a:after,
+  .ul-new  li:focus a:after,
+
+  .ul-new  li.active a:after {
+    opacity: 1;
+  }
+  </style> 
