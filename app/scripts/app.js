@@ -443,6 +443,17 @@ angular
                   pageTitle: 'Preventivos'
                 }
           })
+          .state('preventivoscustom', {
+            url: '/preventivoscustom',
+            access: { requiredAuthentication: true },
+            templateUrl: 'views/credits/preventivos_custom.html',
+            params: {
+              status: null
+            },
+            data: {
+              pageTitle: 'Preventivos Personalizados'
+            }
+      })
           .state('clients', {
                 url: '/clients/:status',
                 access: { requiredAuthentication: true },

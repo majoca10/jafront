@@ -20,6 +20,14 @@ angular.module('shoplyApp')
     }
     $scope.new_payment_form = {};
     
+    $scope.cuotap_setup = { 
+      create:false, 
+      maxItems:1, 
+      valueField: 'value', 
+      labelField: 'text', 
+      placeholder:'# Cuota'
+  };
+
 
 
     $scope.load = function(){
@@ -456,7 +464,9 @@ angular.module('shoplyApp')
       $scope.new_payment_form.data.bank = $rootScope.bank_obj;
       $scope.new_payment_form._credit = $scope.credit._id;
       $scope.new_payment_form._user = $scope.credit._user._id;
-      $scope.new_payment_form.data.vabono = $scope.vabono; 
+      $scope.new_payment_form.data.vabono = $scope.vabono;
+      $scope.new_payment_form.data.cuotap = $scope.cuotap; 
+
 
       if($scope.tipo_pago == "Abono"){
          $scope.new_payment_form.data.tipo_pago = "Abono";
@@ -474,6 +484,7 @@ angular.module('shoplyApp')
                   $scope.credit._payment.push(res._id);
                   $scope.credit._user = $scope.credit._user._id;
                   $scope.credit._contract = $scope.credit._contract ? $scope.credit._contract._id : null;
+                  
 
                   if($scope.tipo_pago == "Abono"){
                       $scope.credit.data.status = 'Consignado';

@@ -177,6 +177,124 @@ angular.module('shoplyApp')
       });
     }
 
+    $scope.loadCustom = function(){
+
+      if( $state.current.name == 'preventivoscustom'){
+          api.credits().add('preventivo-custom').get().success(function(res){
+                $scope.records = res || []
+                $scope.Records  = true;
+          }); 
+
+          return;
+      }
+
+      if($stateParams.status){
+          if($stateParams.status == 'firmado'){
+              api.credits().add('firmado').get().success(function(res){
+                    $scope.records = res || []
+                    $rootScope.result_length = $scope.records.length;
+                    $scope.Records  = true;
+              });            
+            }else if($stateParams.status == 'pendiente'){
+                api.credits().add('pendiente').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'consignado'){
+                api.credits().add('consignado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'pagado'){
+                api.credits().add('pagado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'pendiente_48'){
+                api.credits().add('pendiente_48').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'preventivo'){
+                api.credits().add('preventivo').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'rechazado'){
+                api.credits().add('rechazado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }) 
+            }else if($stateParams.status == 'morosos'){
+                api.credits().add('morosos').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }) 
+            }else if($stateParams.status == 'actualizado'){
+                api.credits().add('actualizado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'desactualizado'){
+                api.credits().add('desactualizado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                }); 
+            }else if($stateParams.status == 'todos'){
+                api.credits().add('all').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });
+            }else if($stateParams.status == 'aceptado'){
+                api.credits().add('aceptado').get().success(function(res){
+                      $scope.records = res || []
+                      $rootScope.result_length_aprobado = $scope.records.length;
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'anulado'){
+                api.credits().add('anulado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'consultado'){
+                api.credits().add('consultado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'preaprobado'){
+                api.credits().add('preaprobado').get().success(function(res){
+                      $scope.records = res || []
+                      $rootScope.result_length_preaprobado = $scope.records.length;
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'fraude'){
+                api.credits().add('fraude').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'dificil_recaudo'){
+                api.credits().add('dificil_recaudo').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });   
+            }else if($stateParams.status == 'finalizado'){
+                api.credits().add('finalizado').get().success(function(res){
+                      $scope.records = res || []
+                      $scope.Records  = true;
+                });
+            } 
+      }else{
+        api.credits().add('all').get().success(function(res){
+              $scope.records = res || []
+              $scope.Records  = true;
+        });
+      }
+
+      api.payments().add("all").get().success(function(res){
+        $rootScope.payments_records = res || [];
+      });
+    }
+
     $scope.$watch('monto', function(n, o){
       if(n){
               $scope.credit.data.amount[0] = $scope.monto;

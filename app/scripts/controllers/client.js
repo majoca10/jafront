@@ -21,6 +21,14 @@ angular.module('shoplyApp').controller('ClientCtrl', function ($scope, $rootScop
         placeholder:'Mostrar'
     }
 
+    $scope.itemsConfig = {
+      create:false,
+      maxItems:1,
+      valueField: 'value',
+      labelField: 'text',
+      placeholder:'# Cuotas'
+  }
+
     $scope.load = function(){
       api.clients().get().success(function(res){
           $scope.records = res || []
