@@ -32,6 +32,12 @@
                          <span class="badge badge-success" ng-show="result_length_preventivo > 0">{{result_length_preventivo}}</span>
                     </a>
                 </li>
+                <li ui-sref-active="active" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
+                    <a class="nav-link"  href="#/preventivoscustom" ui-sref="preventivoscustom()">
+                        <p>Preventivo personalizado</p>
+                         <span class="badge badge-success" ng-show="result_length_preventivo > 0">{{result_length_preventivo}}</span>
+                    </a>
+                </li>
                 <li ng-show="$root.user && $root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR'">
                     <a class="nav-link"  href="#/credits" ui-sref="credits({status : 'firmado'})">
                         <p>Solicitudes</p>
