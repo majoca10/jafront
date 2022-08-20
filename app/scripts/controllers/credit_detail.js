@@ -353,6 +353,20 @@ angular.module('shoplyApp')
       }); 
     }
 
+    $scope.update_datepayment = function(){
+      $scope.user = angular.copy($scope.credit._user);
+
+      window.modal = modal.show({templateUrl : 'views/credits/update_datapayment.html', size:'lg', scope: this, backdrop: true, show : true, keyboard  : true}, function($scope){
+          api.user($scope.user._id).add("/update-datepayment").put({new_date_payment : $scope.user.data.new_date_payment}).success(function(response){
+              if(response){
+                 swal("Feacha Actualizada!", "Has modificado esta fecha correctamente", "success");
+                 $scope.$close();
+                 $scope.load();
+              }
+          });
+      }); 
+    }
+
     $scope.finished = function(){
       var _credit = angular.copy($scope.credit);
 
@@ -465,7 +479,8 @@ angular.module('shoplyApp')
       $scope.new_payment_form._credit = $scope.credit._id;
       $scope.new_payment_form._user = $scope.credit._user._id;
       $scope.new_payment_form.data.vabono = $scope.vabono;
-      $scope.new_payment_form.data.cuotap = $scope.cuotap; 
+      $scope.new_payment_form.data.cuotap = $scope.cuotap;
+      $scope.new_payment_form.data.new_date_payment = $scope.new_date_payment; 
 
 
       if($scope.tipo_pago == "Abono"){
@@ -474,6 +489,7 @@ angular.module('shoplyApp')
          $scope.new_payment_form.data.tipo_pago = "Finalizado";
       }
         console.log("vabono", $scope.new_payment_form.data.vabono)
+        console.log("vabono", $scope.new_payment_form.data.new_date_payment)
         api.payments().add("update_payment_admin").post($scope.toFormData($scope.new_payment_form), {
         transformRequest: angular.identity,
         headers: {'Content-Type':undefined, enctype:'multipart/form-data'}

@@ -233,7 +233,7 @@
                                     </div>
                                     <div ng-show="user.custom"class="col-lg-6">
                                       <div class="form-group text-left">
-                                         <label style="font-size: 12px;"><i ng-class="{ 'text-warning': expired }" style="color:green;" class="fa fa-check-circle"></i> Total pagar {{user.data.ppago}}. (15 y 30 de cada mes)</label>
+                                         <label style="font-size: 12px;"><i ng-class="{ 'text-warning': expired }" style="color:green;" class="fa fa-check-circle"></i> Total pagar {{user.data.ppago}}.</label>
                                          <h3 ng-class="{ 'text-warning': expired }" style="width:100%;margin-bottom:10px;font-size:18px;" class="float-left">{{(current_credit.data.total_payment / user.data.ncuotas) | currency:"$ "}} COP</h3>
                                        </div>
                                      </div>
@@ -486,7 +486,7 @@
                 <div class="col-md-9 col-5"><strong>{{paymentForm_30_day.total_payment | currency:"$ "}} COP</strong></div>
             </li>
             <li ng-show="user.custom" class="list-group-item row " ng-show="current_credit.data.status != 'Rechazado'">
-              <div class="col-md-3 col-7  text-left"><strong>Total a pagar {{user.ppago}} ( 15 y 30 de cada mes)</strong></div>
+              <div class="col-md-3 col-7  text-left"><strong>Total a pagar {{user.ppago}}</strong></div>
               <div class="col-md-9 col-5"><strong>{{(current_credit.data.total_payment / user.data.ncuotas) | currency:"$ "}} COP</strong></div>
           </li>
             <li class="list-group-item row " ng-show="current_credit.data.status == 'Consignado' || current_credit.data.status == 'Pagado'">

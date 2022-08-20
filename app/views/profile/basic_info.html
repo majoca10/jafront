@@ -49,7 +49,7 @@
                          <label class="text-muted">Fecha de nacimiento* <span 
                          style="color:red;font-size: 10px;" ng-show=" (profile.$submitted) && profile.fecha_nacimiento.$invalid"> Este campo es requerido</span></label>
                          <div class="error_wrap">
-                              <date-inline required name="fecha_nacimiento" ng-model="$root.user.data.fecha_nacimiento" initial="1910" placeholder="Fecha de nacimiento"></date-inline>
+                              <date-inline initial="1910" required name="fecha_nacimiento" ng-model="$root.user.data.fecha_nacimiento" placeholder="Fecha de nacimiento"></date-inline>
                          </div>
                       
                     </div>

@@ -295,6 +295,30 @@ angular.module('shoplyApp')
       });
     }
 
+    $scope.$watch('asday', function(n, o){
+      if(n){
+        if(parseInt(n) == 15){
+          api.credits().add('preventivo-custom').get().success(function(res){
+            $scope.records = res.filter(function(c){
+              return  moment(c._user.data.new_date_payment).date() >= 12 && moment(c._user.data.new_date_payment).date() <= 15 ;
+            }) || []
+  
+            $scope.Records  = true;
+          }); 
+        }
+
+        if(parseInt(n) == 30){
+          api.credits().add('preventivo-custom').get().success(function(res){
+            $scope.records = res.filter(function(c){
+              return  moment(c._user.data.new_date_payment).date() >= 28 && moment(c._user.data.new_date_payment).date() <= 31 ;
+            }) || []
+  
+            $scope.Records  = true;
+          }); 
+        }
+      }
+    });
+
     $scope.$watch('monto', function(n, o){
       if(n){
               $scope.credit.data.amount[0] = $scope.monto;

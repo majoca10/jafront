@@ -6,11 +6,12 @@
       scope : {
         ngModel : "=",
         placeholder : "@",
-        required : '@'
+        required : '@',
+        format : "@"
       },
       link: function postLink(scope, element, attrs) {
         $(element[0]).datepicker({
-            format: 'dd-mm-yyyy',
+            format: scope.format || 'dd-mm-yyyy',
             autoclose:true,
              language: 'es',
             templates:{
