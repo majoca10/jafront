@@ -19,6 +19,32 @@ angular.module('shoplyApp')
     $scope.form.data.finance_quoteChange = 960;
     $scope.items = 20;
 
+    $scope.infocredits = function(){
+
+      if($scope.finicial && $scope.ffinal){
+        var finicial = $scope.finicial;
+        var ffinal = $scope.ffinal;
+          api.credits().add("infcredits/").post({"fi":finicial, "ff":ffinal}).success(function(res){
+            $scope.records = res || []
+            $scope.Records  = true;
+          });
+          return;
+          
+      }else{
+              console.log(error)
+      }
+      
+    }
+
+    $scope.getTotal = function(){
+      var total = 0;
+      for(var i = 0; i < $scope.records.length; i++){
+          var sum = $scope.records[i];
+          total += sum.data.amount[0];
+      }
+      return total;
+  }
+
     api.credits().add('firmado').get().success(function(res){
           $rootScope.result_length = res.length;
     });  
@@ -318,6 +344,26 @@ angular.module('shoplyApp')
         }
       }
     });
+
+    $scope.$watch('ffinal', function(){
+      console.log($scope.finicial,$scope.ffinal)
+      if($scope.finicial > $scope.ffinal){
+        swal({
+          title: "Verifica las fechas",
+          text: "La fecha inicial debe ser menor que la fecha final",
+          type: "error",
+          showCancelButton: true,
+          confirmButtonColor: "#008086",
+          confirmButtonText: "Ok",
+          closeOnConfirm: false
+        },
+        delete $scope.ffinal,
+        
+        function(){
+           $scope.$close();
+        });
+    }
+    })
 
     $scope.$watch('monto', function(n, o){
       if(n){

@@ -443,6 +443,28 @@ angular
                   pageTitle: 'Preventivos'
                 }
           })
+          .state('info_credits', {
+            url: '/info_credits',
+            access: { requiredAuthentication: true },
+            templateUrl: 'views/credits/info_credits.html',
+            params: {
+              status: null
+            },
+            data: {
+              pageTitle: 'Info. Creditos'
+            }
+      })
+      .state('info_payments', {
+        url: '/info_payments',
+        access: { requiredAuthentication: true },
+        templateUrl: 'views/payments/info_payments.html',
+        params: {
+          status: null
+        },
+        data: {
+          pageTitle: 'Info. Pagos'
+        }
+  })
           .state('preventivoscustom', {
             url: '/preventivoscustom',
             access: { requiredAuthentication: true },

@@ -25,6 +25,54 @@ angular.module('shoplyApp')
         }
     }
 
+    $scope.infopayments = function(){
+      alert("entra")
+      if($scope.finicial && $scope.ffinal){
+        var finicial = $scope.finicial;
+        var ffinal = $scope.ffinal;
+          api.payments().add("infopayments/").post({"fi":finicial, "ff":ffinal}).success(function(res){
+            $scope.records = res || []
+            $scope.Records  = true;
+          });
+          return;
+          
+      }else{
+              console.log(error)
+      }
+      
+    }
+
+    $scope.getTotal = function(){
+      var total = 0;
+      for(var i = 0; i < $scope.records.length; i++){
+          var sum = $scope.records[i];
+          var sumint = parseInt(sum.data.vabono) || 0;
+          console.log(sumint)
+          total += sumint;
+      }
+      return total;
+  }
+
+  $scope.$watch('ffinal', function(){
+    console.log($scope.finicial,$scope.ffinal)
+    if($scope.finicial > $scope.ffinal){
+      swal({
+        title: "Verifica las fechas",
+        text: "La fecha inicial debe ser menor que la fecha final",
+        type: "error",
+        showCancelButton: true,
+        confirmButtonColor: "#008086",
+        confirmButtonText: "Ok",
+        closeOnConfirm: false
+      },
+      delete $scope.ffinal,
+      
+      function(){
+         $scope.$close();
+      });
+  }
+  })
+
     $scope.early_payment = function(){
       // system es la varibale que contiene la fecha de deposito.
       $scope.mora = {};

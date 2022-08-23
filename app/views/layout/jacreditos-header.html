@@ -20,6 +20,15 @@
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-info">
+            <div class="btn-group" ng-show="$root.user && $root.user.type == 'ADMINISTRATOR'">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Informes
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#/info_credits" >Inf. Creditos</a>
+                  <a class="dropdown-item" href="#/info_payments" >Inf. Pagos</a>
+                </div>
+              </div>
             <ul class="ul-new">
                 <li ng-show="$root.user" class="hidden-md-up" style="position: relative;top: -35px;left: 20px;"><a class="nav-link"  href="" style="top: 10px;position: relative;">{{($root.user.name +' '+ $root.user.last_name)}}
                     <img style="height: 40px;float: left;margin-right: 10px;" ng-show="$root.user.data.picture" ng-src="{{$root.user.data.picture}}">

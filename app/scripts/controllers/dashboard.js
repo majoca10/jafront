@@ -29,12 +29,12 @@ angular.module('shoplyApp')
     $scope.is_transfered = false;
 
       $scope.banks = [
-        {name : 'Bancolombia', img : 'images/bancolombia.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' },
-        {name : 'Davivienda', img : 'images/davivienda.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros'},
-        {name : 'Banco BBVA', img : 'images/bbva.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' },
-        {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
-        {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
-        {name : 'Efectivo', img : 'images/pefectivo.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' }
+        {name : 'Bancolombia', img : 'images/bancolombia.png', account:'50667670443', cc:'92640968', owner:'FRANCISCO JAVIER ARCIA GARAVITO', type:'Ahorros' },
+        //{name : 'Davivienda', img : 'images/davivienda.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros'},
+        //{name : 'Banco BBVA', img : 'images/bbva.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' },
+        //{name : 'Banco de Bogotá', img : 'images/bogota.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
+        //{name : 'Banco Colpatria', img : 'images/colpatria.png', account:'123456789011', owner:'JACREDITOS', cc:'123456789', type:'Ahorros' },
+        //{name : 'Efectivo', img : 'images/pefectivo.png', account:'123456789011', nit:'123456789-1', owner:'JACREDITOS', type:'Ahorros' }
       ]  
 
     $scope.disableSliderControls = function(){
