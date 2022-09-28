@@ -153,6 +153,12 @@
                                  <p>{{$root.bank_obj.cc}}</p>
                                </div> 
                              </div>
+                             <div class="col-6 text-center" ng-show="current_credit._user.custom">
+                              <div class="form-group">
+                                <label>V. cuota</label>
+                                <p>$ {{ current_credit.data.total_payment / current_credit._user.data.ncuotas }}</p>
+                              </div> 
+                            </div>
                            </div>
                            <div class="row">
                              <div class="col-lg-12">

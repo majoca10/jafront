@@ -46,13 +46,13 @@
                 <div class="col-lg-2">
                     <label>Fecha inicial</label>
                     <div class="form-group">
-                        <date-picker format="yyyy-mm-dd" ng-model="finicial" placeholder="Fecha Inicial" class="form-control"></date-picker>
+                        <input format="yyyy-mm-dd" ng-model="finicial" placeholder="Fecha Inicial" class="form-control" type="date" name="finicial">
                     </div>            
                 </div>
                 <div class="col-lg-2">
                     <label>Fecha final</label>
                     <div class="form-group">
-                        <date-picker format="yyyy-mm-dd" ng-model="ffinal" placeholder="Fecha Final" class="form-control"></date-picker>
+                        <input format="yyyy-mm-dd" ng-model="ffinal" placeholder="Fecha Inicial" class="form-control" type="date" name="finicial">
                     </div>            
                 </div>
                 <div class="col-lg-2">
@@ -96,7 +96,7 @@
             dir-paginate="record in records | orderBy:'-createdAt' | itemsPerPage: 100 " 
             >
             <td>{{record._user.full_name || record._user.name +' '+ record._user.last_name || "no definido" | uppercase}}</td>
-            <td>{{(record.data.deposited_time | moment: 'format': 'MMMM DD YYYY').toUpperCase()}}</td>
+            <td>{{(record.createdAt | moment: 'format': 'MM-DD-YYYY').toUpperCase()}}</td>
             <td>{{record.data.tipo_pago || "no definido"}}</td>
             <td>{{record.data.payment_type || "no definido"}}</td>
             <td>{{record.data.vabono || 0 | currency:"$ "}}</td>

@@ -50,43 +50,43 @@
                                             <input type="text" name="vabono" required ng-model="$parent.vabono" class="form-control"  placeholder="Valor Abono" value="vabono" />
                                         </div>
                                     </div>   
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" ng-show="!credit._user.custom" >
                                             <div class="form-group">
                                                 <label><strong>Fecha de pago del cliente</strong></label>
                                                 <p>{{credit.data.pay_day | moment: 'format': 'MMMM DD, YYYY'}}</p>
                                             </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" ng-show="!credit._user.custom">
                                         <div class="form-group">
                                             <label><strong>Dias de Intereses</strong></label>
                                             <p>{{payForDays}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4" ng-show="!credit._user.custom">
                                        <div class="form-group">
                                             <label>Monto</label>
                                            <p>{{credit.data.amount[0] | currency:"$ ":0 || 0}}</p>
                                        </div>    
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4" ng-show="!credit._user.custom">
                                        <div class="form-group">
                                             <label>Intereses</label>
                                            <p>{{mora.interestsDays | currency:"$ ":0 || 0}}</p>
                                        </div>    
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4" ng-show="!credit._user.custom">
                                        <div class="form-group">
                                             <label>Gestión de crédito</label>
                                            <p>{{mora.system_quote | currency:"$ ":0 || 0}}</p>
                                        </div>    
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4" ng-show="!credit._user.custom">
                                        <div class="form-group">
                                             <label>Iva</label>
                                            <p>{{mora.iva | currency:"$ ":0 || 0}}</p>
                                        </div>    
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4" ng-show="!credit._user.custom">
                                        <div class="form-group">
                                             <label>Total a pagar</label>
                                            <p>{{mora.total_payment | currency:"$ ":0 || 0}}</p>

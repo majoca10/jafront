@@ -9,8 +9,8 @@
  */
 angular.module('shoplyApp')
   .constant('constants', {
-    base_url : "http://127.0.0.1/api/",
-  	base : "http://127.0.0.1/",
+    base_url : "https://api.jacreditos.com:8443/api/",
+  	base : "https://api.jacreditos.com:8443/",
     socket : "https://api.jacreditos.com:8443",                          
   	login_state_sucess : 'dashboard',
     uploadURL : "https://www.jacreditos.com:8080/api/uploads",

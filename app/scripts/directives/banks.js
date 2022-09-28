@@ -6,25 +6,25 @@ angular.module('shoplyApp')
 
         if($scope.showAll){
             $scope.records = [
-              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' },
-              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros'},
-              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Corriente' },
-              {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
+              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Ahorros' },
+              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros'},
+              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Corriente' },
+              {name : 'Banco de Bogotá', img : 'images/bogota.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros' },
               {name : 'Banco de Occidente', img : 'images/occidente.png' },
               {name : 'Banco AV Villas', img : 'images/avvillas.png'},
               {name : 'Banco Popular', img : 'images/popular.png'},
-              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
-              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' }
+              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros' },
+              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Ahorros' }
 
             ]          
           }else{
             $scope.records = [
-              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' },
-              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros'},
-              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Corriente' },
-              {name : 'Grupo AVAL', img : 'images/aval.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
-              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'JACREDITOS S.A.S.', cc:'12345678901', type:'Ahorros' },
-              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'12345678901', owner:'JACREDITOS S.A.S.', type:'Ahorros' }
+              {name : 'Bancolombia', img : 'images/bancolombia.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Ahorros' },
+              {name : 'Davivienda', img : 'images/davivienda.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros'},
+              {name : 'Banco BBVA', img : 'images/bbva.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Corriente' },
+              {name : 'Grupo AVAL', img : 'images/aval.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros' },
+              {name : 'Banco Colpatria', img : 'images/colpatria.png', account:'12345678901', owner:'J.A. CREDITOS S.A.S.', cc:'92640968', type:'Ahorros' },
+              {name : 'Efectivo', img : 'images/pefectivo.png', account:'12345678901', nit:'901632772-8', owner:'J.A. CREDITOS S.A.S.', type:'Ahorros' }
 
             ]        
           } 

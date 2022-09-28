@@ -26,10 +26,10 @@ angular.module('shoplyApp')
     }
 
     $scope.infopayments = function(){
-      alert("entra")
       if($scope.finicial && $scope.ffinal){
         var finicial = $scope.finicial;
         var ffinal = $scope.ffinal;
+        console.log( finicial, ffinal )
           api.payments().add("infopayments/").post({"fi":finicial, "ff":ffinal}).success(function(res){
             $scope.records = res || []
             $scope.Records  = true;

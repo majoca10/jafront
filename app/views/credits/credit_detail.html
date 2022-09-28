@@ -268,7 +268,7 @@
                                                     <label class="bold">Iva</label>
                                                     <p>{{mora.iva | currency:"$ ":0 || 0}}</p>
                                                 </div>
-                                                <div class="form-group col-lg-6 text-left">
+                                                <div ng-show="credit._user.custom == false" class="form-group col-lg-6 text-left">
                                                     <label class="bold">Total a pagar hoy</label>
                                                     <p><strong>{{mora.total_payment | currency:"$ ":0 || 0}}</strong></p>
                                                 </div>
@@ -383,7 +383,7 @@
                                               </div>
                                           </div>
                                         <div class="tab-pane" id="home1" role="tabpanel" ng-show="tab == 'IPA'" ng-class="{'active' : tab == 'IPA'}">
-                                              <div class="row"> 
+                                              <div class="row" ng-show="!credit._user.custom"> 
                                                 <div class="form-group col-lg-6 text-left">
                                                     <label class="bold">Monto</label>
                                                     <p>{{credit._payment[0].data.total_payment | currency:"$ ":0 || 0}}</p>
@@ -412,7 +412,25 @@
                                                     <label class="bold">EVIDENCIA DE PAGO</label>
                                                     <p><a href="{{credit._payment[0].data.transaction}}" target="_blank">ADJUNTO</a></p>
                                                 </div> 
-                                            </div>  
+                                            </div> 
+                                            <div class="row" ng-show="credit._user.custom"> 
+                                              <div class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Abono</label>
+                                                  <p>{{credit._payment[0].data.vabono | currency:"$ ":0 || 0}}</p>
+                                              </div> 
+                                              <div class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Fecha de pago</label>
+                                                  <p>{{(credit._payment[0].createdAt).toUpperCase()  | moment: 'format': 'MMMM DD YYYY, h:mm:ss a'}}</p>
+                                              </div> 
+                                              <div class="form-group col-lg-6 text-left">
+                                                  <label class="bold">Tipo de pago</label>
+                                                  <p>{{(credit._payment[0].data.tipo_pago || 'Finalizado').toUpperCase()}}</p>
+                                              </div> 
+                                              <div class="form-group col-lg-6 text-left">
+                                                  <label class="bold">EVIDENCIA DE PAGO</label>
+                                                  <p><a href="{{credit._payment[0].data.transaction}}" target="_blank">ADJUNTO</a></p>
+                                              </div> 
+                                          </div>  
                                           </div>
                                           <div class="tab-pane text-left" role="tabpanel" ng-show="tab == 'CO'" ng-class="{'active' : tab === 'CO'}">
                                              <div class="row"> 
@@ -465,7 +483,36 @@
                                             <div ng-init="getPaymentsCredits()" class="tab-pane" id="home1" role="tabpanel" ng-show="tab == 'LPA'" ng-class="{'active' : tab == 'LPA'}">
                                               <div class="row"> 
                                               <div class="col-lg-12">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive" ng-show="credit._user.custom">
+                                                  <table class="table table-striped">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Pagaré</th>
+                                                        <th>Movimiento</th>
+                                                        <th>T. pago</th>
+                                                        <th>V. Abono</th>
+                                                        <th>Comprobante</th>
+                                                        <th></th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <td colspan="9" class="text-center" ng-show="!filteredPaymentsDetails || filteredPaymentsDetails.length == 0"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;No existen registros</td>
+                                                      <tr  dir-paginate="paymentRecord in filteredPaymentsDetails = (payments_recordsDetails | orderBy:'-createdAt' | filter:searchPayment  | filter:{_user :  { data : { updated : true }} })                
+                                                      | itemsPerPage: 5"  pagination-id="payments_user_entity">
+                                                        <th scope="row"><a  href="#" ui-sref="detail({credit :  paymentRecord._credit._id})" >{{paymentRecord._credit.data.id}}</a></th>
+                                                         <td>{{(paymentRecord.data.payment_type).toUpperCase()}}</td>
+                                                         <td>{{(paymentRecord.data.tipo_pago || 'Finalizado').toUpperCase()}}</td>
+                                                        <td>{{paymentRecord.data.vabono | currency:"$ ":0}}</td>
+                                                          <td><a href="{{paymentRecord.data.transaction}}" target="_blank">Imagen</a></td>
+                                                        <td><button ng-disabled="paymentRecord.data.status == 'Pendiente'" class="btn btn-block btn-primary btn-sm" ng-click="contract()">Contrato</button></td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>                            
+                                                    <div class="pull-left"> 
+                                                      <dir-pagination-controls class="pull-right" pagination-id="payments_user_entity"></dir-pagination-controls>
+                                                    </div> 
+                                          </div>  
+                                                <div class="table-responsive" ng-show="!credit._user.custom">
                                                     <table class="table table-striped">
                                                       <thead>
                                                         <tr>

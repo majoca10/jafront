@@ -14,8 +14,8 @@ angular.module('shoplyApp')
     $scope.form = {};
     $scope.form.data = {};
     if($rootScope.user.custom){
-      $scope.form.data.finance_quoteFixed = 10000;
-      $scope.form.data.finance_quoteChange = 300;
+      $scope.form.data.finance_quoteFixed = 0;
+      $scope.form.data.finance_quoteChange = 0;
     }else{
       $scope.form.data.finance_quoteFixed = 12990;
       $scope.form.data.finance_quoteChange = 700;
@@ -564,11 +564,13 @@ angular.module('shoplyApp')
       $scope.new_payment_form.data.bank = $rootScope.bank_obj;
       $scope.new_payment_form._credit = $scope.current_credit._id;
       $scope.new_payment_form._user = $rootScope.user._id;
-    
+      $scope.new_payment_form._user = $rootScope.user._id;
       if(type){
           $scope.new_payment_form.data.tipo_pago = "Total";
         }else{
           $scope.new_payment_form.data.tipo_pago = "Abono";
+          $scope.new_payment_form.data.vabono = $scope.current_credit.data.total_payment / $scope.current_credit._user.data.ncuotas;
+          console.log($scope.new_payment_form.data.vabono)
       }
 
       api.payments().post($scope.toFormData($scope.new_payment_form), {
@@ -703,7 +705,7 @@ angular.module('shoplyApp')
 
       $scope.payForDays  = now.diff(system, 'days') == 0 ? 1 : now.diff(system, 'days');
       if($rootScope.user.custom){
-        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (10 / 100));
+        $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (11 / 100));
       }else{
         $scope.paymentForm.interests = (parseInt($scope.current_credit.data.amount[0]) * (2.18831289 / 100));
       }
@@ -799,7 +801,7 @@ angular.module('shoplyApp')
               }*/
                
               if($rootScope.user.custom){
-                $scope.form.data.interests = (n[0] * (10 / 100));
+                $scope.form.data.interests = (n[0] * (11 / 100));
                 $scope.form.data.customDayrange = [1, 365]; 
               }else{
                 $scope.form.data.interests = (n[0] * (2.18831289 / 100));
@@ -828,7 +830,7 @@ angular.module('shoplyApp')
               }*/
 
               if($rootScope.user.custom){
-                $scope.form.data.interests = (o[0] * (10 / 100));
+                $scope.form.data.interests = (o[0] * (11 / 100));
               }else{
                 $scope.form.data.interests = (o[0] * (2.18831289 / 100));
               }
