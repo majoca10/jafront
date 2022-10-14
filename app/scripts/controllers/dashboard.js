@@ -18,7 +18,7 @@ angular.module('shoplyApp')
       $scope.form.data.finance_quoteChange = 0;
     }else{
       $scope.form.data.finance_quoteFixed = 12990;
-      $scope.form.data.finance_quoteChange = 700;
+      $scope.form.data.finance_quoteChange = 900;
     }
     
 

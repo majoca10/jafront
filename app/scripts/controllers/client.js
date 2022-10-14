@@ -8,7 +8,7 @@ angular.module('shoplyApp').controller('ClientCtrl', function ($scope, $rootScop
     $scope.form = {};
     $scope.form.data = {};
     $scope.form.data.finance_quoteFixed = 12990;
-    $scope.form.data.finance_quoteChange = 960;
+    $scope.form.data.finance_quoteChange = 900;
 
     $scope.currentPage = 1;
     $scope.items = 20;

@@ -268,7 +268,7 @@
                                                     <label class="bold">Iva</label>
                                                     <p>{{mora.iva | currency:"$ ":0 || 0}}</p>
                                                 </div>
-                                                <div ng-show="credit._user.custom == false" class="form-group col-lg-6 text-left">
+                                                <div ng-show="credit._user.custom == true" class="form-group col-lg-6 text-left">
                                                     <label class="bold">Total a pagar hoy</label>
                                                     <p><strong>{{mora.total_payment | currency:"$ ":0 || 0}}</strong></p>
                                                 </div>
@@ -491,6 +491,7 @@
                                                         <th>Movimiento</th>
                                                         <th>T. pago</th>
                                                         <th>V. Abono</th>
+                                                        <th>F. Abono</th>
                                                         <th>Comprobante</th>
                                                         <th></th>
                                                       </tr>
@@ -503,7 +504,8 @@
                                                          <td>{{(paymentRecord.data.payment_type).toUpperCase()}}</td>
                                                          <td>{{(paymentRecord.data.tipo_pago || 'Finalizado').toUpperCase()}}</td>
                                                         <td>{{paymentRecord.data.vabono | currency:"$ ":0}}</td>
-                                                          <td><a href="{{paymentRecord.data.transaction}}" target="_blank">Imagen</a></td>
+                                                        <td>{{paymentRecord.createdAt | moment: 'format': 'MMMM DD YYYY, h:mm:ss a'}}</td>
+                                                        <td><a href="{{paymentRecord.data.transaction}}" target="_blank">Imagen</a></td>
                                                         <td><button ng-disabled="paymentRecord.data.status == 'Pendiente'" class="btn btn-block btn-primary btn-sm" ng-click="contract()">Contrato</button></td>
                                                       </tr>
                                                     </tbody>

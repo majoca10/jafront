@@ -606,7 +606,7 @@
                    <div ng-hide="$root.user.data.cf" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_cf()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Frontal</button>
                   </div>
-                   <input type="file" id="cf" name="evidence" name="cf" accept="image/*, application/pdf" ng-model="cfm" reader="cf" style="display:none;">
+                   <input type="file" id="cf" name="evidence" name="cf" accept="image/*, application/pdf" required ng-model="cfm" reader="cf" style="display:none;">
                 </div> 
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.cf" >
                 <a href="{{$root.user.data.cf.path}}" target="_blank" class="btn btn-primary">Ver</a>
@@ -619,7 +619,7 @@
                    <div  ng-hide="$root.user.data.cl" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_cl()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Trasera</button>
                   </div>
-                   <input type="file" id="cl" name="cl" name="pic" accept="image/*, application/pdf" ng-model="cl" reader="clm" style="display:none;">
+                   <input type="file" id="cl" name="cl" name="pic" accept="image/*, application/pdf" required ng-model="cl" reader="clm" style="display:none;">
                 </div> 
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.cl" >
                 <a href="{{$root.user.data.cl.path}}" target="_blank" class="btn btn-primary">Ver</a>
@@ -641,11 +641,11 @@
             </div>
             <div class="col-lg-4" >
                 <div class="form-group">
-                  <label class="label" style="display:block;">Servicio Publico</label>
+                  <label class="label" style="display:block;">Servicio Publico. (Requerido)</label>
                    <div ng-hide="$root.user.data.ce" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button ng-click="upload_ce()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Servicio Publico</button>
                   </div>
-                   <input type="file" id="ce" name="evidence" name="ce" accept="image/*, application/pdf" ng-model="cem" reader="ce" style="display:none;">
+                   <input type="file" id="ce" name="evidence" name="ce" accept="image/*, application/pdf" required ng-model="cem" reader="ce" style="display:none;">
                 </div>
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.ce">
                 <a href="{{$root.user.data.ce.path}}" target="_blank" class="btn btn-primary">Ver</a>
@@ -654,11 +654,11 @@
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="label" style="display:block;">Selfie</label>
+                  <label class="label" style="display:block;">Selfie. (Requerido)</label>
                    <div  ng-hide="$root.user.data.ex" class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                       <button  ng-click="upload_ex()" type="button" class="btn btn-secondary"><i class="fa fa-upload"></i>Selfie</button>
                   </div>
-                   <input type="file" id="ex" name="evidence" name="ex" accept="image/*, application/pdf" ng-model="exm" reader="ex" style="display:none;">
+                   <input type="file" id="ex" name="evidence" name="ex" accept="image/*, application/pdf" required ng-model="exm" reader="ex" style="display:none;">
                 </div>
               <div class="btn-group btn-group-sm" ng-show="$root.user.data.ex">
                 <a href="{{$root.user.data.ex.path}}" target="_blank" class="btn btn-primary">Ver</a>

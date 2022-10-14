@@ -7,16 +7,16 @@
                 <span class="navbar-toggler-bar bar3"></span>
             </button>
             <a class="nav-link"  class="navbar-brand" ui-sref="home()" href="#/home" ng-show="!$root.user">
-              <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span>
+              <img class="hidden-xs" style="width:20%;" src="images/logo-main.svg">
+             <!-- <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span> -->
             </a>
             <a class="nav-link"  class="navbar-brand" ui-sref="dashboard()" ui-sref-opts="{ reload : true}" href="#/dashboard" ng-show="$root.user && $root.user.type == 'CLIENT'">
-              <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span>
+              <img class="hidden-xs" style="width:20%;" src="images/logo-main.svg">
+            <!-- <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span> -->
             </a>
             <a class="nav-link"  ui-sref="credits({status:'firmado'})" href="#/credits" ng-show="$root.user && ($root.user.type == 'ADMINISTRATOR' || $root.user.type == 'SUPERVISOR') ">
-              <img class="hidden-xs" style="width:70%;" src="images/logo-main.png">
-              <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span>
+              <img class="hidden-xs" style="width:20%;" src="images/logo-main.svg">
+            <!-- <span style="display: block;position: absolute;font-size: 11px;bottom: -11px;left: 33px;color: #0bd6dd;">Créditos rápidos</span> -->
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="example-navbar-info">

@@ -14,7 +14,7 @@ angular.module('shoplyApp')
     $scope.form = {};
     $scope.form.data = {};
     $scope.form.data.finance_quoteFixed = 12990;
-    $scope.form.data.finance_quoteChange = 700;
+    $scope.form.data.finance_quoteChange = 900;
 
     if($rootScope.user){
       delete $rootScope.user;
